@@ -1,0 +1,20 @@
+beautifulsoup4==4.10.0
+bs4==0.0.1
+CacheControl==0.12.10
+certifi==2021.10.8
+charset-normalizer==2.0.12
+cssselect==1.1.0
+fire==0.4.0
+htmlmin==0.1.12
+idna==3.3
+lxml==4.8.0
+msgpack==1.0.3
+parse==1.19.0
+pyquery==1.4.3
+-e git+https://github.com/rajatomar788/pywebcopy.git@a7b030fe588bf24737d2f6ff7443598cbe429ca3#egg=pywebcopy
+requests==2.27.1
+six==1.16.0
+soupsieve==2.3.1
+termcolor==1.1.0
+urllib3==1.26.8
+w3lib==1.22.0
