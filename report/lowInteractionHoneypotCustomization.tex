@@ -1,0 +1,53 @@
+\documentclass[conference, 11pt,slovak,a4paper,twoside]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{float}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Detekcia nepovoleného prístupu kustomizáciou nízko interaktívnych honeypotov}
+
+\author{\IEEEauthorblockN{Jakub Perdek}
+\textit{Slovenská technická univerzita v Bratislave}\\
+Bratislava, Slovensko \\
+perdek.jakub@gmail.com}
+
+\maketitle
+
+\begin{abstract}
+Prevencia pri zabezpečení systému obvykle nemusí byť dostatočná. Z toho dôvodu je potrebné detegovať aktivity spojené hlavne s neoprávneným prístupom do systému, súborom alebo do intranetu. Ich skoré odhalenie môže pomôcť prijať vhodné opatrenia a zabrániť reálnemu útoku na systém. Vhodným nástrojom sú práve honeypoty. Tie naviac môžu slúžiť aj na spomalenie neoprávnených aktivít alebo na zmiatnutie útočníka. Často sú ale ľahko rozpoznateľné od reálnych aktív, a preto je ich kustomizácia nevyhnutná. Lákanie možno realizovať podľa viacerých stratégií, a podľa toho aj prispôsobiť generovanie kustomizovateľných tokenov. Predstavujeme preto automatické riešenie pre tvorbu nízko interaktívnych honeypotov založené na čo najväčšej infiltrácii logiky pre sledovanie rozličných foriem manipulovania s nimi v rámci konkrétnej biznis logiky. Snahou je poskytnúť informácie pri záujeme o konkrétny obsah. Analyzované sú preto rôzne spôsoby aplikovania uvedených mechanizmov v rámci webových dokumentov. Možnosti pre zamedzenie ich zneužitia a obmedzenie manipulácie s nimi by v rámci tohto druhu honeypotov mali byť ľahšie dosiahnuteľné a prispôsobené pre konkrétny prípad použitia.   
+\end{abstract}
+
+\begin{IEEEkeywords}
+nízko interaktívne honeypoty, detekcia nepovoleného vstupu, kustomizácia honeypotov, webové honeytokeny
+\end{IEEEkeywords}
+
+\section{Úvod}
+Honeypoty sú bezpečnostným zdrojom, ktorý generuje upozornenie pri zachytení nadviazania interakcie s ním \cite{sanders_intrusion_2020}. Napríklad v podobe prieskumu, útoku alebo pri kompromitácii. Často lákajú infiltrovaný subjekt, a pri ich dobrom maskovaní a umiestnení môžu pomôcť odhaliť neoprávnený prístup, odhalené prístupové údaje, dokonca spomaliť aktivity útočníka vrátane odhalenie nultého útoku a rovnako aj zistiť niektoré ním aplikované postupy pri útoku. Bežní používatelia by nemali s honeypotom vôbec interagovať, ale ani vedieť  o tejto funkcionalite. Prihlásenie sa do takéhoto systému alebo otvorenie a manipulácia s dokumentom, respektíve honey tokenom \cite{ng_honeypot_2018} je preto automaticky podozrivá a malo by pomocou oznámení byť na ňu upozornené.
+
+
+
+\section{Honeypoty pre detekciu neoprávneného prístupu}
+
+\section{Benefity nízko interaktívnych honeypotov pre detekciu neoprávneného prístupu}
+
+\section{Návrh nízko interaktívneho honey tokenu z webových dokumentov}
+
+\section{Automatizácia kustomizácie honey tokenu}
+
+\subsection{Zhrnutie a budúca práca}
+
+
+\bibliographystyle{abbrv} % plain or alpha are fine, too
+\bibliography{honeypots}
+
+
+\end{document}
