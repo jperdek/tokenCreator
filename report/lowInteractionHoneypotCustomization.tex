@@ -5,9 +5,17 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
-\usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{textcomp}
 \usepackage{float}
+\usepackage{listings}
+\usepackage{url}
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true
+}
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -39,11 +47,81 @@ Honeypoty sú bezpečnostným zdrojom, ktorý generuje upozornenie pri zachyten�
 
 \section{Benefity nízko interaktívnych honeypotov pre detekciu neoprávneného prístupu}
 
+
 \section{Návrh nízko interaktívneho honey tokenu z webových dokumentov}
 
-\section{Automatizácia kustomizácie honey tokenu}
+Nízko interaktívne honeypoty pre detekciu neoprávneného prístupu by mali zahŕňať mechanizmy pre generovanie informácie o príslušnej udalosti. Tie by mali byť dostatočne maskované, tak aby sa útočník o svojom odhalení najlepšie ani nedozvedel. V svojej práci sme sa zamerali na webové dokumenty. 
 
-\subsection{Zhrnutie a budúca práca}
+
+\subsection{Mechanizmy pre logovanie aktivity s webovým tokenom}
+
+Analyzovali sme rôzne spôsoby vloženia spomenutého mechanizmu do webového dokumentu. Zamerali sme sa na prípady, keď sa manipuluje s webovým dokumentom neposkytovaným priamo v rámci nejakého spusteného servera. Výsledný honey token v podobe konkrétneho dokumentu bude poskytovať obmedzené možnosti interakcie s ním, a tým sa zabráni aj jeho zneužitiu. Identifikovali sme nasledovné prípady umožnenie sledovania interakcie s uvedeným dokumentom:
+
+\begin{enumerate}
+	\item Použitie nástroja sledujúceho zmeny v rámci súborového systému, prípadne iného systému v rámci ktorého sa uvedené tokeny manažujú, pre vybrané súbory. Získanou informáciou potom je len informácia o záujme o tieto súbory. Detekovanie takejto zmeny môže byť aj jednoduchšie detegovať. 
+	
+	\item Vloženie, respektíve nahradenie alebo upravenie existujúceho iframe elementu novým. Infiltrovanej osobe sa tým priamo poskytne hľadaný obsah aj s odoslaním informácií pri dopytoch po zdrojových súboroch nového obsahu. Zároveň možno odpozorovať o aký obsah má osoba záujem a príslušne tento obsah kustomizovať. Aj napriek tomu, ža sa iframy už neodporúča používať stále sa vyskytujú hlavne pri službách poskytujúcich letáky v internetových obchodoch.
+
+	\item Vytvorenie a odoslanie informujúcej správy, respektíve logu na server. Správu by malo byť potrebné maskovať. Oproti predchádajúcemu spôsobu môže byť takáto správa odchytená a jej odoslanie na server útočníkom znemožnené, keďže sama o sebe spravidla neposkytuje pre útočníka relevantný obsah. Mala by preto byť prepojená s vyžiadaním konkrétnych kľúčov pre sprístupnenie tohto obsahu. 
+\end{enumerate}
+ 
+Obmedzenie na menované spôsoby je hlavne z dôvodu ochrán pred internetovými hrozbami,v rámci ktorých nie je povolené zapisovať na disk pomocou prehliadaču štandardným spôsobom. Rovnako ukladanie je obmedzené na použitie cookies, ktoré si používateľ spravidla môže prezerať. Pri aplikácii preto zostáva informovať s použitím naviazania na zdroje, ktoré sú ku dokumentu priradené.
+  
+
+\subsection{Nástroje pre maskovanie logiky honeypotu a ich význam pre kustomizáciu}
+
+Pri tvorbe funkcionality umožňujúcej detekovať manipuláciu s týmito tokenmi a ich ďalšiu kustomizáciu sme použili nástroje pre:
+
+\begin{enumerate}
+	\item Vytvorenie kópie danej webovej lokality, prípadne iba jej časti. 
+
+	\item Manipulovanie so štruktúrou webového dokumentu a automatickú zmenu informácií v rámci nej.
+	
+	\item Minifikáciu a zamlženie súborov pre kaskádové štýly, skripty pre javascript a hlavne HTML dokumenty. 
+
+	\item Využitie proxy, ktoré umožňuje získať a pozmeniť časť pravého obsahu pre nalákanie útočníka.
+	
+	\item Zahashovanie a zneprístupnenie obsahu až do momentu priameho vykonania skriptov na tránke. Inak by útočník mohol získať želaný obsah iba otvorením konkrétneho súboru.
+\end{enumerate}
+
+Vytvorenie kópie webovej lokality sme realizovali pomocou balíčkov prístupných v jazyku python. Zistili sme ale ich obmedzenú funkčnosť pri reálnom použití. V prípade balíčku pywebcopy~\footnote{\url{https://pypi.org/project/pywebcopy/}} to bolo časté zamrznutie skriptu kvôli zlúčeniu vlákien. Použili sme preto najnovšiu verziu priamo z githubu~\footnote{\url{https://github.com/rajatomar788/pywebcopy}} a zablokovali použitie multivláknového spracovania ale vyskytol sa nový problém s absolútnymi adresami skopírovaného dokumentu. Kvôli nim sa napríklad nezobrazia pôvodné obrázky na stránke. Ďalším nástrojom bolo vloženie podpory pre HTTrack~\footnote{\url{https://www.httrack.com}}, ktorý je efektívnejší a nemal komplikácie ako predchádzajúci balík. Jeho použitie je ale závislé na operačnom systéme a v súboroch necháva informácie o použití tohto nástroja.
+
+Príklad použitia nástroja HTTrack pre získanie súborov do hĺbky 1, bez externých závislostí, a ich uloženie do priečinku ./downloads:
+
+\begin{lstlisting}
+"C:\\Program Files\\WinHTTrack\\httrack.exe" https://www.trony.it/online/store-locator -v -r1 -\%e0 -O ./download
+\end{lstlisting}
+
+
+Pokiaľ je možné tak manipulujeme so štruktúru webového dokumentu dynamicky s použitím knižnice Beautifulsoup. Typickou použiadavkou je upravenie konkrétnych iframe elementov a nastavenie ich atribútov. Niekedy je potrebné funkcionalitu využiť pre prepojenie aj upravených alebo vytvorených skriptov alebo kaskádových štýlov s webovým dokumentom. Pokiaľ načítanie tejto štruktúry nie je možné malo by byť zabezpečené pridanie uvedených častí v textovej podobe.
+
+Do riešenia sme pridali niekoľko nástrojov pre zamlženie a minfikáciu súborov. Rôzne nástroje poskytovali funkcionalitu pre rozdielne typy súborov. Pre minifikáciu HTML sme použili pythonovskú knižnicu htmlmin~\footnote{\url{https://pypi.org/project/htmlmin}} s nastavením pre vymazanie prázdneho miesta a odstránenie komentárov. Pre minimalizáciu javascriptu sme použili Closure Compiler~\footnote{\url{https://github.com/google/closure-compiler}} od Googlu. V rámci nastavení sme použili compilation-level na SIMPLE\_OPTIMIZATIONS, kvôli tomu, že pri pokročilejšom nastavení dochádzalo k odstránenie všetkého kódu pokiaľ nebol priamo exportovaný. Redundantné funkcie určené na zneprehľadnenie kódu by tak boli odstránené. Následne sme pridali parameter pre spracovanie aj javascriptovských súborov v striktnom móde. Minimalizáciu kaskádových štýlov sme zabezpečili pomocou externého nástroja Yui Compressor~\footnote{\url{https://github.com/yui/yuicompressor}} volaného podobne z príkazového riadku. Jednotlivé nástroje sme aplikovali na príslušné súbory v konkrétnej vybranej stromovej štruktúre. V praxi takýmito súbormi sú súbory klonovanej webvej lokality so zapracovanou sledovacou logikou.
+
+Ďalšou voliteľnú časť tvorí použitie proxy pre poskytnutie časti relevantného obsahu s dodatočnou možnosťou úpravy. Funkcionalitu sme sa rozhodli pridať kvôli uľahčeniu procesu kopírovania časti namiesto celej webovej lokality, keďže v praxi táto činnosť vyžadovala kopírovanie obsahu aj z externých stránok. Reštriktívny je CORS hlavne pri zabezpečenejších aplikáciám. Namiesto proxy je preto výhodnejšie poskytovať celý fiktívny obsah pre honeypot priamo. Pri využití proxy možno reálne dáta z existujúcich služieb upravovať za behu, ale rastie riziko odhalenia takéhoto honeypotu.
+
+Podstatnými sú nástroje pre maskovanie obsahu. Dáta je možné uložiť do viacerých častí, ktoré sa v priebehu vykonania zložia. To núti používateľa aby súbor reálne otvoril v prehliadači, nechal vykonať kód a tým zapríčinil aj vykonanie skrytej sledovacej logiky. Opäť by sprístupnenie obsahu malo spočívať na komunikácii so serverom, inak sledovacia logika neoznámi manipuláciu s tokenom. Rovnako je možné použiť base64 hash, ktorým ukryjeme obsah a hlavne sledovaciu logiku pred vyhľadaním zvonka. Alternatívou je prevod do hexadecimálneho formátu alebo použitie knižnice pre obalenie dát. Existujú rôzne formáty, používaným môže byť gzip. 
+
+
+\section{Automatizácia kustomizácie honeytokenu}
+
+V rámci automatizácie a kustomizácie honey tokenu riešime dve stratégie. V rámci prvej používateľ špecifikuje počet výrazných honeytokenov a doménu z ktorej majú byť vytvorené. V rámci druhej stratégie automatizácia a kustomizácia nebude zvýrazňovať určité charakteristiky cieľového súboru a jeho obsahu ale vytvorí dostatočný počet takýchto podobných tokenov.
+
+V rámci samotnej automatizácie sa vykonajú kroky v nasledovnej postupnosti:
+\begin{enumerate}
+	\item Klonovanie webových dokumentov z danej domény. Zváži sa tu aj klonovanie nepovolených stránok v rámci súboru robots.txt a hĺbka tohto klonovania.
+
+	\item Pre každý generovaný prvok sa rovnako vykoná nasledovný postup. Vloží sa element so sledovacím iframe, pri ktorom server loguje požiadavky pre dopytovanie sa po jeho obsahu alebo sa nahradí existujúci iframe aj spolu s presunutím poskytovania tohto obsahu na server. V prípade nepoužitia iframu sa vygeneruje a vloží kód odosielajúci informácie pri vyžiadaní konkrétneho obsahu.
+	
+	\item Klonovanie webovej lokality na adrese, na ktorú smeruje iframe a tvorba API pre spracovanie funkcionality poskytovanej konkrétnym iframom. Obsah v rámci biznis domény uložený v rámci konkrétnych súborov by mal byť ďalej kustomizovaný. V prípade nepoužitia iframu sa vygeneruje kostra servera poskytujúceho kľúče pre sprístupnenie obsahu z klienta a odmaskovanie správy pre jej zalogovanie.
+	
+	\item Ďalšie hashovanie a zneprístupňovanie obsahu v rámci súborov. Zabezpečenie funkčnosti pri vykreslení stránky a aplikovaní kľúčov zo serveru.
+	
+	\item Rovnako pre každý generovaný honeytoken prebehne minifikácia a prípadné zamlženie skriptov, html súborov a asociovaných kaskádových štýlov. 
+\end{enumerate}
+
+
+
+\section{Zhrnutie a budúca práca}
 
 
 \bibliographystyle{abbrv} % plain or alpha are fine, too
