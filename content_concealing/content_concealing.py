@@ -3,7 +3,7 @@ import gzip
 import zlib
 import base64
 import random
-#import brotli
+import brotli
 from typing import Optional, Union
 
 
@@ -153,12 +153,10 @@ class BrotliConcealing(ContentConcealing):
     def encode(self, pure_text: str) -> str:
         if not type(pure_text) is bytes:
             pure_text = pure_text.encode()
-        return urllib.parse.quote_from_bytes(gzip.compress(pure_text))
-        #return urllib.parse.quote_from_bytes(brotli.compress(pure_text))
+        return urllib.parse.quote_from_bytes(brotli.compress(pure_text))
 
     def decode(self, encoded_text: str) -> bytes:
-        return gzip.decompress(urllib.parse.unquote_to_bytes(encoded_text)).decode()
-        #return brotli.decompress(urllib.parse.unquote_to_bytes(encoded_text)).decode()
+        return brotli.decompress(urllib.parse.unquote_to_bytes(encoded_text)).decode()
 
 
 class DeflateConcealing(ContentConcealing):
