@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Whois detail</title>
+		<link href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="createdCSS/layoutDetail.css" />
+		<link rel="stylesheet" type="text/css" href="createdCSS/buttons.css" />
+		<link rel="stylesheet" type="text/css" href="createdCSS/texts.css" />
+		<link rel="stylesheet" type="text/css" href="createdCSS/table.css" />
+		<link rel="stylesheet" type="text/css" href="createdCSS/tutorialLayout.css" />	
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" media="screen" href="css/particleStyle.css">
+		
+	</head>
+	<body>
+		<header>
+			<img class="whoisLogo" src="img/whois.svg" alt="Whois logo"/>
+			<nav  class="whoisNavBar navbar-light navbar-expand-xl">
+				<span ><a class="navbar-brand" href="#"></a></span> 
+				<button class="navbar-toggler togglerRight" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarsExample04">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nexteriaMenu nexteriaMenuActive nav-link" href="/">Search<span class="sr-only">(current)</span></a>
+						<li class="nav-item">
+							<a class="nexteriaMenu nexteriaMenuPassive nav-link" href="#">Terms</a>
+						</li>
+						<li class="nav-item">
+							<a class="nexteriaMenu nexteriaMenuPassive nav-link" href="/bcryptIntro">BCrypTutorial</a>
+						</li>
+						<li class="nav-item">
+							<a class="nexteriaMenu nexteriaMenuPassive nav-link" href="/schema">Schema</a>
+						</li>
+						<li class="nav-item">
+							<a class="nexteriaMenu nexteriaMenuPassive nav-link" href="#">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div class="alert alert-success notFoundAlert" role="alert" id="notFoundAlert">
+				<p id="notFoundAlertText" class="notFoundAlertText">Not found!</p>
+			</div>
+		</header>
+		<div id="particles-js" class="graphImage"></div>
+		
+		<main>
+			<div class="whoisRecord">
+				<h1 class="mainHeader mainMargin">Whois schema</h1>
+				<div class="textWhoisTutorial flexCenter">
+					<h2 class="chapterColumn">Design of schema</h2>
+					<p class="textMonospaceWhois">We are using following DB schema. We have information about domain in one entity. Changeable information about vulnerabilities are stored and maintaned separately. Vulnerabilities are divided into 4 categories which depict scale of danger. Its easy to add new type of vulnerability. Description can vary from record to record. 
+					</p>
+					<img class="imageSchema vastSchema" src="img/db_schema/db_schema.svg" alt="Large schema image"/>
+					<img class="imageSchema smallSchema" src="img/db_schema/db_schema_small.svg" alt="Small schema image"/>
+				</div>
+			</div>
+		</main>
+		
+		<footer>
+			<p class="footerText" >Designed and created by Team 19 CYRAN &copy;</p> 
+		</footer>
+	
+		<!-- scripts -->
+		<script src="js/particles/particles.min.js"></script>
+		<script src="js/particles/app.js"></script>
+
+		<!-- stats.js -->
+		<script src="js/particles/lib/stats.js"></script>
+		
+		<script>
+			var count_particles, stats, update;
+			stats = new Stats;
+			stats.setMode(0);
+			update = function() {
+				stats.begin();
+				stats.end();
+				requestAnimationFrame(update);
+			};
+			requestAnimationFrame(update);
+			document.getElementsByTagName('canvas')[0].setAttribute('style',"width: 100%; height: 100vh");
+		
+		</script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.bundle.js"></script>
+		<script>
+			window.addEventListener("resize", function() { document.getElementsByTagName('canvas')[0].setAttribute('style',"width: 100%; height: 100vh"); });
+		</script>
+		<script>
+			notFound = document.getElementById('notFoundAlert');
+			notFound.style.display= "none";
+			alertFunction = function(text, display){ 
+				var notFound = document.getElementById('notFoundAlert');
+				notFound.style.display= "none";
+				var notFoundAlertText = document.getElementById('notFoundAlertText');
+				notFoundAlertText.innerHTML = text;
+				if(display) {
+					notFound.style.display= "block";
+					setTimeout(function() {notFound.style.display= "none"}, 5000);
+				}
+			}
+		</script>
+	</body>
+	
+</html>

@@ -91,7 +91,7 @@ class ContentSplitter:
 class JavascriptContentConcealing(ContentSplitter):
 
     @staticmethod
-    def add_declaration(text_part: str, variable_name: str, double_quotes: bool = True) -> (str, str):
+    def add_declaration(text_part: str, variable_name: str, double_quotes: bool = False) -> (str, str):
         if "\"" not in text_part:
             return "let {variable_name} = \"{text_part}\";".format(
                 variable_name=variable_name, text_part=text_part), variable_name
@@ -107,8 +107,8 @@ class JavascriptContentConcealing(ContentSplitter):
                     variable_name=variable_name, text_part=text_part.replace("'", "\\'")), variable_name
 
     @staticmethod
-    def put_to_quotes(text_part: str, double_quotes: bool = True):
-        if "\"" in text_part:
+    def put_to_quotes(text_part: str, double_quotes: bool = False):
+        if "\"" not in text_part:
             return "\"{text_part}\"".format(text_part=text_part)
         elif "'" not in text_part:
             return "'{text_part}'".format(text_part=text_part)

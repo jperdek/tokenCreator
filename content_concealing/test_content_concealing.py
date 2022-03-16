@@ -15,6 +15,7 @@ def test1() -> None:
         "My text is unconcealed and needs to be hidden! My text is unconcealed and needs to be hidden! "
         "My text is unconcealed and needs to be hidden! My text is unconcealed and needs to be hidden!")
     commands, last_variable = JavascriptContentConcealing.randomly_split_content(concealed_text)
+    print(get_execute_function_template(commands, last_variable))
     result_execute_function = js2py.eval_js(get_execute_function_template(commands, last_variable))
     concealed_text_executed_js = result_execute_function()
 

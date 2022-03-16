@@ -1,0 +1,137 @@
+
+@media(min-width: 435px) {
+	.loginButton {
+		width: 330px;
+		height: 65px;
+		border-radius: 33px !important;
+	}
+}
+
+@media(max-width: 435px) {
+	.loginButton {
+		width: 100%;
+		height: calc(100vw / 5);
+		border-radius: calc(10vw) !important;
+	}
+}
+
+.btnCapitals {
+	border-radius: 25px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.defaultButton {
+	height: 50px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.purpleButton { 
+	color: #FFFFFF; 
+	background-color: #F51771; 
+	border-color: #F51771; 
+} 
+ 
+.purpleButton:hover, 
+.purpleButton:focus, 
+.purpleButton:active, 
+.purpleButton.active, 
+.open .dropdown-toggle.purpleButton { 
+	color: #FFFFFF; 
+	background-color: #F2AF00; 
+	border-color: #F2AF00; 
+} 
+ 
+.purpleButton:active, 
+.purpleButton.active, 
+.open .dropdown-toggle.purpleButton { 
+  background-image: none; 
+} 
+ 
+.purpleButton.disabled, 
+.purpleButton[disabled], 
+fieldset[disabled] .purpleButton, 
+.purpleButton.disabled:hover, 
+.purpleButton[disabled]:hover, 
+fieldset[disabled] .purpleButton:hover, 
+.purpleButton.disabled:focus, 
+.purpleButton[disabled]:focus, 
+fieldset[disabled] .purpleButton:focus, 
+.purpleButton.disabled:active, 
+.purpleButton[disabled]:active, 
+fieldset[disabled] .purpleButton:active, 
+.purpleButton.disabled.active, 
+.purpleButton[disabled].active, 
+fieldset[disabled] .purpleButton.active { 
+	background-color: #F51771; 
+	border-color: #F51771; 
+} 
+ 
+.purpleButton .badge { 
+	color: #F51771; 
+	background-color: #FFFFFF; 
+}
+
+.azureButton { 
+  color: #FFFFFF; 
+  background-color: #00B2A9; 
+  border-color: #00B2A9; 
+} 
+ 
+.azureButton:hover, 
+.azureButton:focus, 
+.azureButton:active, 
+.azureButton.active, 
+.open .dropdown-toggle.azureButton { 
+  color: #FFFFFF; 
+  background-color: #00257A; 
+  border-color: #00257A; 
+} 
+ 
+.azureButton:active, 
+.azureButton.active, 
+.open .dropdown-toggle.azureButton { 
+  background-image: none; 
+} 
+ 
+.azureButton.disabled, 
+.azureButton[disabled], 
+fieldset[disabled] .azureButton, 
+.azureButton.disabled:hover, 
+.azureButton[disabled]:hover, 
+fieldset[disabled] .azureButton:hover, 
+.azureButton.disabled:focus, 
+.azureButton[disabled]:focus, 
+fieldset[disabled] .azureButton:focus, 
+.azureButton.disabled:active, 
+.azureButton[disabled]:active, 
+fieldset[disabled] .azureButton:active, 
+.azureButton.disabled.active, 
+.azureButton[disabled].active, 
+fieldset[disabled] .azureButton.active { 
+  background-color: #00B2A9; 
+  border-color: #00B2A9; 
+} 
+ 
+.azureButton .badge { 
+  color: #00B2A9; 
+  background-color: #FFFFFF; 
+}
+
+
+.confirmButton {
+	height: 50px;
+	width: 200px;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-size: 40px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	font-size: 1.5rem;
+	text-align: right;
+	padding-right: 2rem;
+	background-position: 20% 50%;
+	border-bottom-right-radius: 25px;
+}

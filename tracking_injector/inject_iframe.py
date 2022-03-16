@@ -42,9 +42,10 @@ def download_iframe_content(content_link: str, content_to_serve_folder: str, ign
 def find_and_manage_iframe(page_soup,
                            tracking_address: str,
                            content_to_serve_folder: str = None,
-                           iframe_selector: str = None) -> any:
+                           iframe_selector: str = None,
+                           create_new_iframe: bool = False) -> any:
     selected_iframe = None
-    if content_to_serve_folder:
+    if content_to_serve_folder and not create_new_iframe:
         selected_iframes = page_soup.select("iframe")
         if not iframe_selector and selected_iframes:
             chosen_iframe = random.randrange(0, len(selected_iframes))
@@ -53,7 +54,10 @@ def find_and_manage_iframe(page_soup,
             selected_iframe = page_soup.select_one(iframe_selector)
 
     if not selected_iframe:
-        print("Iframe not found! Creating new one!...")
+        if create_new_iframe:
+            print("Creating new iframe!...")
+        else:
+            print("Iframe not found! Creating new one!...")
         new_iframe = create_tracking_iframe(injected_address=tracking_address)
         print("Appending created iframe to page body!...")
         page_soup.select_one("body").append(new_iframe)
@@ -68,10 +72,11 @@ def process_injection_using_beautiful_soup(html_file_location: str,
                                            tracking_address: str,
                                            content_to_serve_folder: str,
                                            iframe_selector: str = None,
-                                           new_file_location: str = None):
+                                           new_file_location: str = None,
+                                           create_new_iframe: bool = False):
     with open(html_file_location, "r", encoding="utf-8", errors="ignore") as file:
         page_soup = BeautifulSoup(file.read(), "html.parser")
-    find_and_manage_iframe(page_soup, tracking_address, content_to_serve_folder, iframe_selector)
+    find_and_manage_iframe(page_soup, tracking_address, content_to_serve_folder, iframe_selector, create_new_iframe)
 
     if not new_file_location:
         print("Warning... previous document will be replaced!...")
@@ -86,10 +91,11 @@ def inject_iframe(html_file_location: str,
                   tracking_address: str,
                   content_to_serve_folder: str = None,
                   iframe_selector: str = None,
-                  debug: bool = True):
+                  debug: bool = True,
+                  create_new_iframe: bool = False):
     try:
         process_injection_using_beautiful_soup(html_file_location, tracking_address,
-                                               content_to_serve_folder, iframe_selector)
+                                               content_to_serve_folder, iframe_selector, create_new_iframe)
     except:
         print("Error: injection using loading page failed! Trying to add it manually!")
         if debug:

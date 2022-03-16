@@ -1,0 +1,3 @@
+date	size'/'remotesize	flags(request:Update,Range state:File response:Modified,Chunked,gZipped)	statuscode	status ('servermsg')	MIME	Etag|Date	URL	localfile	(from URL)
+23:07:45	99/99	U-----	200	untouched ('OK')	text/plain	etag:%227032aa007-63-4a76db8c47800%22	https://www.bestoldgames.net/robots.txt		(from )
+23:07:48	17826/17826	U--MC-	200	updated ('OK')	text/html	date:Wed,%2016%20Mar%202022%2022:07:46%20GMT	https://www.bestoldgames.net/battle-chess	../examples/simple/generatedResult/www.bestoldgames.net/battle-chess.html	(from )

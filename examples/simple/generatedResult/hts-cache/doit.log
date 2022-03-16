@@ -1,0 +1,8 @@
+https://www.bestoldgames.net/battle-chess -v -r1 -%e0 -O ../examples/simple/generatedResult
+File generated automatically on Wed, 16 Mar 2022 23:09:51, do NOT edit
+
+To update a mirror, just launch httrack without any parameters
+The existing cache will be used (and modified)
+To have other options, retype all parameters and launch HTTrack
+To continue an interrupted mirror, just launch httrack without any parameters
+

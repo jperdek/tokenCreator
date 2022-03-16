@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Whois detail</title>
+		<link href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="createdCSS/layoutDetail.css" />
+		<link rel="stylesheet" type="text/css" href="createdCSS/buttons.css" />
+		<link rel="stylesheet" type="text/css" href="createdCSS/texts.css" />
+		<link rel="stylesheet" type="text/css" href="createdCSS/table.css" />
+		<link rel="stylesheet" type="text/css" href="createdCSS/tutorialLayout.css" />	
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" media="screen" href="css/particleStyle.css">
+		
+	</head>
+	<body>
+		<header>
+			<img class="whoisLogo" src="img/whois.svg" alt="Whois logo"/>
+			<nav  class="whoisNavBar navbar-light navbar-expand-xl">
+				<span ><a class="navbar-brand" href="#"></a></span> 
+				<button class="navbar-toggler togglerRight" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarsExample04">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nexteriaMenu nexteriaMenuActive nav-link" href="/">Search<span class="sr-only">(current)</span></a>
+						<li class="nav-item">
+							<a class="nexteriaMenu nexteriaMenuPassive nav-link" href="#">Terms</a>
+						</li>
+						<li class="nav-item">
+							<a class="nexteriaMenu nexteriaMenuPassive nav-link" href="/bcryptIntro">BCrypTutorial</a>
+						</li>
+						<li class="nav-item">
+							<a class="nexteriaMenu nexteriaMenuPassive nav-link" href="/schema">Schema</a>
+						</li>
+						<li class="nav-item">
+							<a class="nexteriaMenu nexteriaMenuPassive nav-link" href="#">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div class="alert alert-success notFoundAlert" role="alert" id="notFoundAlert">
+				<p id="notFoundAlertText" class="notFoundAlertText">Not found!</p>
+			</div>
+		</header>
+		<div id="particles-js" class="graphImage"></div>
+		
+		<main>
+			<div class="whoisRecord">
+				<h1 class="mainHeader mainMargin">BCrypt Tutorial</h1>
+				<div class="textWhoisTutorial flexCenter">
+					<h2 class="chapterColumn">Slow hashing functions</h2>
+					<p class="textMonospaceWhois">Hashing using salt is basic hashing technology. It is based on combination password with salt. In older implementations value of salt was based on time value of setting pasword to user. Newest implementations are using random numbers. Algorithm should use slow hashing  function for generating hash slowly as prevention for possible attacks. Value of salt is usually stored with password. Bcrypt is one of algorithms which use salt.
+					</p>
+					<img class="imageSaltAndBCrypt" src="/img/saltAndBcrypt.svg" alt="using salt while hashing"/>
+					<h2 class="chapterColumn chapterMargin">Benefits of using Salt</h2>
+					<ul class="pros">
+						<li class="pros textMonospaceWhoisList">Duplicate passwords will be after hashing different because of random salt.</li>
+						<li class="pros textMonospaceWhoisList">It makes dictionary attacks more harder. Attacker must try all possible values of salt.</li>
+						<li class="pros textMonospaceWhoisList">Difficult to observe if one user used same password on other accounts.</li>
+					</ul>
+					<h2 class="chapterColumn chapterMargin">Benefits of using BCrypt</h2>
+					<ul class="pros">
+						<li class="pros textMonospaceWhoisList">Uses salt and hashed passwords are safer in database.</li>
+						<li class="pros textMonospaceWhoisList">Increases time for processing hash fucntion.</li>
+						<li class="pros textMonospaceWhoisList">Administrators can set higher load for their passwords. Load is configurable.</li>
+					</ul>
+					
+				</div>
+				<form id="bcryptForm" action="/bcryptIntro" method="POST">
+					<div class="textWhoisTutorial tutorialLayout">
+						<h2 class="chapterColumn headerBlock" >BCrypt encryptor</h2>
+						<div class="saltBlock">
+							<h3 class="thirdHeading alignLeft">Salt:</h3>
+							<input id="salt" class="inputTutorial" type="number" value="<%=salt %>" placeholder="<%=salt %>" name="salt"/>
+						</div>
+						<div class="inputTextBlock">
+							<h3 class="thirdHeading alignLeft">Given text:</h3>
+							<input class="inputTutorial" type="text" value="<%=inputText %>" placeholder="<%=inputText %>" name="inputText"/>
+						</div>
+						<div class="outputTextBlock">
+							<h3 class="thirdHeading alignLeft">Converted text:</h3>
+							<input class="inputTutorial" type="text" disabled value="<%=outputText %>"/>
+						</div>
+						<div class="confirmButtonBlock">
+							<input class="confirmButton"  type="submit" value="Apply BCrypt">
+						</div>
+					</div>
+				</form>
+				<form id="bcryptValidateForm" action="/bcryptIntroValidator" method="POST">
+					<div class="textWhoisTutorial tutorialLayout">
+						<h2 class="chapterColumn headerBlock" >BCrypt validator</h2>
+						<div class="saltBlock">
+							<h3 class="thirdHeading alignLeft">Guessed text:</h3>
+							<input class="inputTutorial" type="text" value="<%=guessedText %>" placeholder="<%=guessedText %>" name="guessedText"/>
+						</div>
+						<div class="inputTextBlock">
+							<h3 class="thirdHeading alignLeft">Given hash:</h3>
+							<input class="inputTutorial" type="text" value="<%=givenHash %>" placeholder="<%=givenHash %>" name="givenHash"/>
+						</div>
+						<div class="outputTextBlock">
+							<h3 class="thirdHeading alignLeft">Answer:</h3>
+							<input class="inputTutorial" type="text" disabled value="<%=resultComparation %>"/>
+						</div>
+						<div class="confirmButtonBlock">
+							<input class="confirmButton"  type="submit" value="Apply BCrypt">
+						</div>
+					</div>
+				</form>
+			</div>
+		</main>
+		
+		<footer>
+			<p class="footerText" >Designed and created by Team 19 CYRAN &copy;</p> 
+		</footer>
+	
+		<!-- scripts -->
+		<script src="js/particles/particles.min.js"></script>
+		<script src="js/particles/app.js"></script>
+
+		<!-- stats.js -->
+		<script src="js/particles/lib/stats.js"></script>
+		
+		<script>
+			var count_particles, stats, update;
+			stats = new Stats;
+			stats.setMode(0);
+			update = function() {
+				stats.begin();
+				stats.end();
+				requestAnimationFrame(update);
+			};
+			requestAnimationFrame(update);
+			document.getElementsByTagName('canvas')[0].setAttribute('style',"width: 100%; height: 100vh");
+		
+		</script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.bundle.js"></script>
+		<script>
+			window.addEventListener("resize", function() { document.getElementsByTagName('canvas')[0].setAttribute('style',"width: 100%; height: 100vh"); });
+		</script>
+		<script>
+			notFound = document.getElementById('notFoundAlert');
+			notFound.style.display= "none";
+			alertFunction = function(text, display){ 
+				var notFound = document.getElementById('notFoundAlert');
+				notFound.style.display= "none";
+				var notFoundAlertText = document.getElementById('notFoundAlertText');
+				notFoundAlertText.innerHTML = text;
+				if(display) {
+					notFound.style.display= "block";
+					setTimeout(function() {notFound.style.display= "none"}, 5000);
+				}
+			}
+			document.getElementById('bcryptForm').onsubmit = function() {
+				salt = document.getElementById('salt').value;
+				 if(salt == "") {
+					console.log("NOW");
+					 alertFunction("Salt can't be empty string", true);
+					 return false;
+				 } else if(salt > 25){
+					alertFunction("Salt can't be greater then 25. Processing will last more than 1 hour!", true);
+					return false;
+				 } else if(salt > 18){
+					alertFunction("Warning! It can take from few minutes up to one hour!", true);
+					return true;
+				 } else {
+					 return true; // Note this
+				 }
+			 };
+		</script>
+	</body>
+	
+</html>

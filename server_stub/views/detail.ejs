@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Whois detail</title>
+		<link href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="createdCSS/layoutDetail.css" />
+		<link rel="stylesheet" type="text/css" href="createdCSS/buttons.css" />
+		<link rel="stylesheet" type="text/css" href="createdCSS/texts.css" />
+		<link rel="stylesheet" type="text/css" href="createdCSS/table.css" />		
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" media="screen" href="css/particleStyle.css">
+	</head>
+	<body>
+		<header>
+			<img class="whoisLogo" src="img/whois.svg" alt="Whois logo"/>
+			<nav  class="whoisNavBar navbar-light navbar-expand-xl">
+				<span ><a class="navbar-brand" href="#"></a></span> 
+				<button class="navbar-toggler togglerRight" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarsExample04">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nexteriaMenu nexteriaMenuActive nav-link" href="/">Search<span class="sr-only">(current)</span></a>
+						<li class="nav-item">
+							<a class="nexteriaMenu nexteriaMenuPassive nav-link" href="#">Terms</a>
+						</li>
+						<li class="nav-item">
+							<a class="nexteriaMenu nexteriaMenuPassive nav-link" href="/bcryptIntro">Bcrypt Tutorial</a>
+						</li>
+						<li class="nav-item">
+							<a class="nexteriaMenu nexteriaMenuPassive nav-link" href="/schema">Schema</a>
+						</li>
+						<li class="nav-item">
+							<a class="nexteriaMenu nexteriaMenuPassive nav-link" href="#">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<div id="particles-js" class="graphImage"></div>
+		
+		<main>
+			<section class="domainProfile">
+				<h1 class="mainHeader" >Domain profile</h1>
+				<table class="tableProfile">
+					<tr>
+						<th class="titleColumn titleColumnText"></th>
+						<th class="dateColumn dateColumnText"></th>
+					</tr>
+					<tr>
+						<td class="titleText" >Registrar</td>
+						<td class="subtitleTable"><% if(data.domain_registrar_name != null && data.domain_registrar_name != "") {%><%=data.domain_registrar_name%><% } else { %> Not available<% } %></td>
+					</tr>
+					<tr>
+						<td class="titleText" >Dates</td>
+						<td class="subtitleTable">	<b>Create date:</b> <% if(data.create_date != null && data.create_date != "") { %> <%=data.create_date%> <% } else { %> Not available<% } %><br/>
+													<b>Update date:</b> <% if(data.update_date != null && data.update_date != "") { %> <%=data.update_date%> <% } else { %> Not available<% } %><br/>
+													<b>Expiry date:</b> <% if(data.expiry_date != null && data.expiry_date != "") { %> <%=data.expiry_date%> <% } else { %> Not available<% } %><br/>
+						</td>
+					</tr>
+					<tr>
+						<td class="titleText" >Name servers</td>
+						<td class="subtitleTable">	<b>Name server 1:</b> <% if(data.name_server_1 != null && data.name_server_1 != "") { %> <%=data.name_server_1%> <% } else { %> Not available<% } %><br/>
+													<b>Name server 2:</b> <% if(data.name_server_2 != null && data.name_server_2 != "") { %> <%=data.name_server_2%> <% } else { %> Not available<% } %><br/>
+													<b>Name server 3:</b> <% if(data.name_server_3 != null && data.name_server_3 != "" ) { %> <%=data.name_server_3%> <% } else { %> Not available<% } %><br/>
+													<b>Name server 4:</b> <% if(data.name_server_4 != null && data.name_server_4 != "") { %> <%=data.name_server_4%> <% } else { %> Not available<% } %><br/>
+						</td>
+					</tr>
+				</table> 
+			</section>
+			<section class="websiteProfile">
+				<h1 class="mainHeader" >Website</h1>
+				<table class="tableProfile">
+					<tr>
+						<th class="titleColumn titleColumnText"></th>
+						<th class="dateColumn dateColumnText"></th>
+					</tr>
+					<tr>
+						<td class="titleText" >Terms</td>
+						<td class="subtitleTable">Not available</td>
+					</tr>
+					<tr>
+						<td class="titleText" >Images</td>
+						<td class="subtitleTable">Not available</td>
+					</tr>
+					<tr>
+						<td class="titleText" >Links</td>
+						<td class="subtitleTable">Not available</td>
+					</tr>
+				</table>
+			</section>
+			<section class="whoisRecord">
+				<h1 class="mainHeader" >Whois Record</h1>
+				<div class="textWhois">
+				<% if(data.domain_name != null && data.domain_name != "") { %>
+Domain:&#9;&#9;&#9;&#9;<%=data.domain_name%><% } %><% if(data.domain_registrar_name != null &&  data.domain_registrar_name != "") { %>
+Registrant:&#9;&#9;&#9;<%=data.domain_registrant_name%><% } %><% if(data.create_date != null && data.create_date != "") { %>	
+Create date:&#9;&#9;&#9;<%=data.create_date%><% } %><% if(data.update_date != null && data.update_date != "" ) { %>
+Update date:&#9;&#9;&#9;<%=data.update_date%><% } %><% if(data.expiry_date != null && data.expiry_date != "" ) { %>
+Expiry date:&#9;&#9;&#9;<%=data.expiry_date%><% } %>	
+<% if(data.domain_registrar_name != null && data.domain_registrar_name != "") {%>
+Domain registrar name:&#9;&#9;<%=data.domain_registrar_name%><% } %><% if(data.domain_registrar_whois != null && data.domain_registrar_whois != "") {%>
+Domain registrar whois:&#9;&#9;<%=data.domain_registrar_whois%><% } %><% if(data.domain_registrar_url != null && data.domain_registrar_url != "") {%>
+Domain registrar url:&#9;&#9;<%=data.domain_registrar_url%><% } %>			
+<% if(data.registrant_name != null  && data.registrant_name != "") {%>
+Registrant name:&#9;&#9;<%=data.registrant_name%><% } %><% if(data.registrant_company != null && data.registrant_company != "") {%>				
+Registrant company:&#9;&#9;<%=data.registrant_company%><% } %><% if(data.registrant_address != null && data.registrant_address != "") {%>
+Registrant address:&#9;&#9;<%=data.registrant_address%><% } %><% if(data.registrant_city != null && data.registrant_city != "") {%>
+Registrant city:&#9;&#9;<%=data.registrant_city%><% } %><% if(data.registrant_state != null && data.registrant_state != "") {%>
+Registrant state:&#9;&#9;<%=data.registrant_state%><% } %><% if(data.registrant_zip != null && data.registrant_zip != "") {%>
+Registrant zip:&#9;&#9;&#9;<%=data.registrant_zip%><% } %><% if(data.registrant_country != null && data.registrant_country != "") {%>
+Registrant country:&#9;&#9;<%=data.registrant_country%><% } %><% if(data.registrant_email != null && data.registrant_email != "") {%>
+Registrant email:&#9;&#9;<%=data.registrant_email%><% } %><% if(data.registrant_phone != null && data.registrant_phone != "") {%>
+Registrant phone:&#9;&#9;<%=data.registrant_phone%><% } %><% if(data.registrant_fax != null && data.registrant_fax != "") {%>
+Registrant fax:&#9;&#9;&#9;<%=data.registrant_fax%><% } %>			
+<% if(data.administrative_name != null && data.administrative_name != "") {%>
+Administrative name:&#9;&#9;<%=data.administrative_name%><% } %><% if(data.administrative_company != null && data.administrative_company != "") {%>
+Administrative company:&#9;&#9;<%=data.administrative_company%><% } %><% if(data.administrative_address != null && data.administrative_address != "") {%>
+Administrative address:&#9;&#9;<%=data.administrative_address%><% } %><% if(data.administrative_city != null && data.administrative_city != "") {%>
+Administrative city:&#9;&#9;<%=data.administrative_city%><% } %><% if(data.administrative_state != null && data.administrative_state != "") {%>
+Administrative state:&#9;&#9;<%=data.administrative_state%><% } %><% if(data.administrative_zip != null && data.administrative_zip != "") {%>
+Administrative zip:&#9;&#9;<%=data.administrative_zip%><% } %><% if(data.administrative_country != null && data.administrative_country != "") {%>
+Administrative country:&#9;&#9;<%=data.administrative_country%><% } %><% if(data.administrative_email != null && data.administrative_email != "") {%>
+Administrative email:&#9;&#9;<%=data.administrative_email%><% } %><% if(data.administrative_phone != null && data.administrative_phone != "") {%>
+Administrative phone:&#9;&#9;<%=data.administrative_phone%><% } %><% if(data.administrative_fax != null && data.administrative_fax != "") {%>
+Administrative fax:&#9;&#9;<%=data.administrative_fax%><% } %>		
+<% if(data.technical_name != null && data.technical_name != "") {%>
+Technical name:&#9;&#9;&#9;<%=data.technical_name%><% } %><% if(data.technical_company != null && data.technical_company != "") {%>
+Technical company:&#9;&#9;<%=data.technical_company%><% } %><% if(data.technical_address != null && data.technical_address != "") {%>
+Technical address:&#9;&#9;<%=data.technical_address%><% } %><% if(data.technical_city != null && data.technical_city != "") {%>
+Technical city:&#9;&#9;&#9;<%=data.technical_city%><% } %><% if(data.technical_state != null && data.technical_state != "") {%>
+Technical state:&#9;&#9;<%=data.technical_state%><% } %><% if(data.technical_zip != null && data.technical_zip != "") {%>
+Technical zip:&#9;&#9;&#9;<%=data.technical_zip%><% } %><% if(data.technical_country != null && data.technical_country != "") {%>
+Technical country:&#9;&#9;<%=data.technical_country%><% } %><% if(data.technical_email != null && data.technical_email != "") {%>
+Technical email:&#9;&#9;<%=data.technical_email%><% } %><% if(data.technical_phone != null && data.technical_phone != "") {%>
+Technical phone:&#9;&#9;<%=data.technical_phone%><% } %><% if(data.technical_fax != null && data.technical_fax != "") {%>
+Technical fax:&#9;&#9;&#9;<%=data.technical_fax%><% } %>			
+<% if(data.billing_name != null && data.billing_name != "") {%>
+Billing name:&#9;&#9;&#9;<%=data.billing_name%><% } %><% if(data.billing_company != null && data.billing_company != "") {%>
+Billing company:&#9;&#9;<%=data.billing_company%><% } %><% if(data.billing_address != null && data.billing_address != "") {%>
+Billing address:&#9;&#9;<%=data.billing_address%><% } %><% if(data.billing_city != null && data.billing_city != "") {%>
+Billing city:&#9;&#9;&#9;<%=data.billing_city%><% } %><% if(data.billing_state != null && data.billing_state != "") {%>
+Billing state:&#9;&#9;&#9;<%=data.billing_state%><% } %><% if(data.billing_zip != null && data.billing_zip != "") {%>
+Billing zip:&#9;&#9;&#9;<%=data.billing_zip%><% } %><% if(data.billing_country != null && data.billing_country != "") {%>
+Billing country:&#9;&#9;<%=data.billing_country%><% } %><% if(data.billing_email != null && data.billing_email != "") {%>
+Billing email:&#9;&#9;&#9;<%=data.billing_email%><% } %><% if(data.billing_phone != null && data.billing_phone != "") {%>
+Billing phone:&#9;&#9;&#9;<%=data.billing_phone%><% } %><% if(data.billing_fax != null && data.billing_fax != "") {%>
+Billing fax:&#9;&#9;&#9;<%=data.billing_fax%><% } %>			
+<% if(data.name_server_1 != null && data.name_server_1 != "") {%>
+Name server 1:&#9;&#9;&#9;<%=data.name_server_1%><% } %><% if(data.name_server_2 != null && data.name_server_2 != "") {%>
+Name server 2:&#9;&#9;&#9;<%=data.name_server_2%><% } %><% if(data.name_server_3 != null && data.name_server_3 != "") {%>
+Name server 3:&#9;&#9;&#9;<%=data.name_server_3%><% } %><% if(data.name_server_4 != null && data.name_server_4 != "") {%>
+Name server 4:&#9;&#9;&#9;<%=data.name_server_4%><% } %>		
+<% if(data.domain_status_1 != null && data.domain_status_1 != "") {%>
+Domain status 1:&#9;&#9;<%=data.domain_status_1%><% } %><% if(data.domain_status_2 != null && data.domain_status_2 != "") {%>
+Domain status 2:&#9;&#9;<%=data.domain_status_2%><% } %><% if(data.domain_status_3 != null && data.domain_status_3 != "") {%>
+Domain status 3:&#9;&#9;<%=data.domain_status_3%><% } %><% if(data.domain_status_4 != null && data.domain_status_4 != "") {%>
+Domain status 4:&#9;&#9;<%=data.domain_status_4%><% } %>
+		
+				</div>
+			</section>
+			<section class="vulnerabilities">
+				<h1 class="mainHeader" >Found vulnerabilities</h1>
+				<table class="tableProfile">
+					<tr>
+						<th class="titleColumn titleColumnText">Type</th>
+						<th class="descriptionColumn titleColumnText">Description</th>
+						<th class="dangerColumn titleColumnText">Danger</th>
+					</tr>
+					<% if(vuln == null || vuln.length == 0) { %>
+						<tr>
+							<td class="titleText">Not available</td>
+							<td class="subtitleTable">Not available</td>
+							<td class="subtitleTable">Not available</td>
+						</tr>
+					<% } else { %>
+						<% for(var i = 0; i< vuln.length; i++){ %>
+						<tr>
+							<td class="titleText"><%=vuln[i].vuln_type%></td>
+							<td class="subtitleTable"><%=vuln[i].description%></td>
+							<td class="subtitleTable"><%=vuln[i].vuln_danger%></td>
+						</tr>
+						<% } %>
+					<% } %>
+		
+					
+				</table>
+			</section>
+		</main>
+		
+		<footer>
+			<p class="footerText" >Designed and created by Team 19 CYRAN &copy;</p> 
+		</footer>
+	
+		<!-- scripts -->
+		<script src="js/particles/particles.min.js"></script>
+		<script src="js/particles/app.js"></script>
+
+		<!-- stats.js -->
+		<script src="js/particles/lib/stats.js"></script>
+		
+		<script>
+			var count_particles, stats, update;
+			stats = new Stats;
+			stats.setMode(0);
+			update = function() {
+				stats.begin();
+				stats.end();
+				requestAnimationFrame(update);
+			};
+			requestAnimationFrame(update);
+			document.getElementsByTagName('canvas')[0].setAttribute('style',"width: 100%; height: 100vh");
+		</script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.bundle.js"></script>
+		<script>
+			window.addEventListener("resize", function() { document.getElementsByTagName('canvas')[0].setAttribute('style',"width: 100%; height: 100vh"); });
+		</script>
+	</body>
+	
+</html>

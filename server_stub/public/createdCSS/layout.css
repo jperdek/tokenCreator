@@ -1,0 +1,140 @@
+
+main  {
+	display: block;
+	position: fixed;
+	bottom: 60vh;
+}
+
+footer {
+	display: block;
+	position: fixed;
+	width: 100vw;
+	height: 120px;
+	top: calc(100vh - 120px);
+	background-color: #ffecb3 !important;
+	opacity: 0.75;
+}
+
+body {
+	position: relative;
+}
+
+header {
+	display: grid !important;
+	grid-template-areas: "whoisLogo navigation";
+	justify-content: space-between;
+	
+	position: fixed;
+	background-color: grey !important;
+	width: 100vw;
+	opacity: 0.75;
+	height: 50px;
+}
+
+.whoisLogo {
+	grid-area: whoisLogo;
+	display: inline-block;
+	height: 40px;
+	margin: 5px;
+	margin-left: 2.5rem;
+}
+
+.whoisNavBar {
+	grid-area: navigation;
+	display: inline-block;
+	height: 40px;
+	font-size: 1rem;
+	width: 100%;
+	margin-right: 2.5rem;
+}
+
+.search {
+	position: fixed;
+	right: calc(50vw - 300px);
+}
+
+.searchField {
+	height: 50px;
+	width: 400px;
+	font-size: 1.5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	grid-area: searchField;
+}
+
+.wholeSearch {
+	display: grid;
+	grid-template-areas: "searchField searchButton";
+}
+
+.searchButton {
+	grid-area: searchButton;
+	height: 50px;
+	width: 200px;
+	text-align: center;
+	background-image: url('../img/searchinghouse.svg');
+	background-repeat: no-repeat;
+	background-size: 40px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	font-size: 1.5rem;
+	text-align: right;
+	padding-right: 2rem;
+	background-position: 20% 50%;
+	border-bottom-right-radius: 25px;
+}
+
+.footerText {
+	text-align: center;
+	font-weight: bold;
+	font-size: 0.75rem;
+	align-self: center;
+	margin-top: 0.5rem;
+}
+
+.infobox {
+	background-color: #fff9e6;
+	margin-bottom: 1rem;
+	
+	height: 75px;
+}
+
+.thirdHeading {
+	font-weight: bold;
+	font-size: 1.5rem;
+	text-align: center;
+	padding-top: 0.5rem;
+	font-style: cursive;
+}
+
+.tryText {
+	font-family: comix;
+	font-weight: bold;
+	font-size: 2rem;
+	text-align: center;
+	font-family: 'Coming Soon', cursive;
+}
+
+.mainHeader {
+	font-weight: bold;
+	font-size: 3rem;
+	color: silver;
+	text-align: center;
+	padding-bottom: 1rem;
+}
+
+.notFoundAlert {
+	position: absolute !important;
+	justify-self: center;
+	background-color: pink !important;
+	top: 2rem;
+}
+
+.notFoundAlertText {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: bold;
+	color: red;
+	font-family: monospace;
+}
