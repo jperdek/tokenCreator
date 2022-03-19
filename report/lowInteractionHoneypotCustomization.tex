@@ -55,7 +55,7 @@ Nízko interaktívne honeypoty pre detekciu neoprávneného prístupu by mali za
 
 \subsection{Mechanizmy pre logovanie aktivity s webovým tokenom}
 
-Analyzovali sme rôzne spôsoby vloženia spomenutého mechanizmu do webového dokumentu. Zamerali sme sa na prípady, keď sa manipuluje s webovým dokumentom neposkytovaným priamo v rámci nejakého spusteného servera. Výsledný honey token v podobe konkrétneho dokumentu bude poskytovať obmedzené možnosti interakcie s ním, a tým sa zabráni aj jeho zneužitiu. Identifikovali sme nasledovné prípady umožnenie sledovania interakcie s uvedeným dokumentom:
+Analyzovali sme rôzne spôsoby vloženia spomenutého mechanizmu do webového dokumentu. Zamerali sme sa na prípady, keď sa manipuluje s webovým dokumentom neposkytovaným priamo v rámci nejakého spusteného servera. Výsledný honeytoken v podobe konkrétneho dokumentu bude poskytovať obmedzené možnosti interakcie s ním, a tým sa zabráni aj jeho zneužitiu. Identifikovali sme nasledovné prípady umožnenie sledovania interakcie s uvedeným dokumentom:
 
 \begin{enumerate}
 	\item Použitie nástroja sledujúceho zmeny v rámci súborového systému, prípadne iného systému v rámci ktorého sa uvedené tokeny manažujú, pre vybrané súbory. Získanou informáciou potom je len informácia o záujme o tieto súbory. Detekovanie takejto zmeny môže byť aj jednoduchšie detegovať. 
@@ -116,7 +116,84 @@ V rámci samotnej automatizácie sa vykonajú kroky v nasledovnej postupnosti:
 	
 	\item Ďalšie hashovanie a zneprístupňovanie obsahu v rámci súborov. Zabezpečenie funkčnosti pri vykreslení stránky a aplikovaní kľúčov zo serveru.
 	
+	\item Prípadné pridanie redundantného kódu alebo spájanie a vykonanie zamlženej verzie.
+	
 	\item Rovnako pre každý generovaný honeytoken prebehne minifikácia a prípadné zamlženie skriptov, html súborov a asociovaných kaskádových štýlov. 
+\end{enumerate}
+
+
+\section{Návrh a implementácia nástrojov pre utajenie obsahu}
+
+Ukrytie obsahu konkrétnych správ ale aj celých skriptov môže byť v rámci statických súborov nevyhnutné. Zároveň je potrebné aplikovať takýto postup na každú zahrnutú biznis informáciu, ktorá by neskôr mala byť sprístupnená a prezentovaná v rámci konkrétneho honeytokenu. Sprístupnia sa potom už iba konkrétne fiktívne biznis informácie. Útočník by si konkrétnych logov a ich obsahu potom nemal všimnúť. Rovnako by nemal ani neblokovať požiadavky smerujúce na server kvôli jeho potencionálnemu záujmu o biznis obsah. Uvedená funkcionalita by mala zabezpečiť rôzne druhy informácií odosielané z rôznych častí webového dokuemntu a zvýšiť tak možnosti informovania o činnosti útočníka.
+
+
+\subsection{Utajenie obsahu kompresiou a kódovaním}
+
+Pre budúci generátor honey tokenov sme navrhli funkcionalitu, ktorá bude obsah niekoľko ráz maskovať s použitím náhodne vybraných metód uplatnených aj niekoľko krát. Výsledkom bude maskovaný obsah a kľúčom bude postupnosť identifikátorov metód, aby následne mohli byť použité pre navrátenie textu do čitateľnej podoby. Funkcionalitu sme zostrojili tvorbou triedy podporujúcej dve základné metódy pre maskovanie a odmaskovanie. Tie konkrétne implementácie dediace od nej prekryli vlastnými využívajúcimi svoju funkcionalitu a umožnili tak náhradu za túto základnú triedu, čo dopomohlo k náhodnému výberu konkrétnej metódy. V základne triede sme implementovali nástroje pre náhodný výber metódy, získanie metódy podľa identifikátora, funkcionalitu umožňujúcu maskovať a rovnako odmaskovať konkrétny obsah.
+
+Pri implementácii konkrétnych maskovacích metód sme využili knižnice tretích strán. Okrem základnej funkcionality umožňujúcej vytvoriť z textu hash ako napríklad base64, base32, base16 alebo base85 (knižnica base64~\footnote{\url{https://docs.python.org/3/library/base64.html}}) sme implementovali aj podporu pre kompresné metódy ako je gzip (knižnica gzip~\footnote{\url{https://docs.python.org/3/library/gzip.html}}), deflate (knižnica zlib~\footnote{\url{https://docs.python.org/3/library/zlib.html}}) alebo brotli (knižnica brotli~\footnote{\url{https://pypi.org/project/Brotli}}). Vstupom ako aj výstupom každej z týchto metód je textový reťazec. Problémom kompresných metód je vrátenie výslednej hodnoty v binárnej podobe. Bolo preto zaručiť konverziu do textovej podoby. To ale v rámci kódovania utf-8 nebolo kvôli rôznym nevyhovujúcim znakom možné. Pri vynechaní chýb nebolo spätné odmaskovanie úplne úspešné a uplatnenie viacerých metód ani možné. Rovnako pretypovanie spôsobovalo chyby pri integrácii spomenutých kompresných metód. Nakoniec sa nám problém podrilo vyriešiť nástrojom pre quotovanie url (knižnica urlib~\footnote{\url{https://docs.python.org/3/library/urllib.html}}), ktorý to dokázal urobiť aj z binárnej podoby (metóda pre prevod z binárnej podoby na text má podobu urllib.parse.quote\_from\_bytes(compressed\_bytes) a metóda pre spätný prevod má podobu urllib.parse.unquote\_to\_bytes(encoded\_text)). Ako ďalšie metódy pre maskovanie textu sme použili funkcionalitu pre quotovanie url (urllib.parse.quote\_plus(pure\_text)) a jeho spätné dekódovanie (urllib.parse.unquote\_plus(encoded\_text)).
+
+Nakoniec sme implementovali spomenuté metódy pre maskovanie a odmaskovanie. Metóda pre maskovanie získa na vstupe zvolený text, pole maskovacích metód a počet uplatnených cyklov. Následne náhodne vyberie z tohto poľa maskovaciu metódu a uplatní ju na zvolený text. Zaznamená sa aj druh tejto metódy podľa identifikátora tejto metódy. Postup sa opakuje zvolený počet krát vždy s predtým maskovaným textom. Výsledkom je maskovaný text a identifikátor všetkých použitých maskovacích metód ako kľúč. Ten sa môže umiestniť na serveri a zabezpečiť tak utajenie obsahu, alebo zaručiť odmaskovanie už na klientovi s nevyhnutnou potrebou maskovania tohto kľúču. V rámci uvedenej funkcionality je predpoklad odmaskovania na klientovi dôležitý, inak by postačovala aj iná forma šifrovania, pri ktorej by server bol schopný sprístupniť konkrétne správy, respektíve informácie.
+
+Metóda na odmaskovanie na vstupe požaduje maskovaný text a identifikátor všetkých použitých metód pre maskovanie. V rámci tejto metódy sa vykoná reverzná aplikácia uvedených metód v opačnom poradí ako boli použité pri maskovaní. Výsledkom by mal byť odmaskovaný text v podobe v akej bol pred jeho utajením.
+
+
+\subsection{Zamlženie kódu jeho rozdelením a vykonaním v rámci druhého kódu}
+
+V praxi okrem štandardnej minifikácie kódu zahŕňajúcej náhradu premenných a odstránenia prázdneho miesta môže byť užitočné aj rozdelenie kódu na viaceré časti. Ak sa pred rozdelením aplikuje maskovanie obsahu z predchádzajúcej časti dostávame tak dômyselne utajený obsah. Týmto obsahom by mala byť najčastejšie správa o postupe útočníka ale môže ním byť aj zdrojový kód samotný. V prípade takéhoto spracovania zdrojového kódu samotného ako reťazca je potrebné vykonanie metódy eval. V rámci nej sa zdrojový kód zapísaný ako textový reťazec vykoná. Použitie tejto metódy je stále veľkým bezpečnostným riskom, a preto by sa malo takému použitiu vyhnúť. Ideálne kód predĺžiť rozdelením jednotlivých príkazov, lepším prepletením kódu s bizis logikou alebo pridaním nepotrebných a redundantných častí.
+
+V rámci našej implementácie sme umožnili rozdeliť textový reťazec na viaceré časti s použitím premenných a polí. Do polí sú tieto časti pridávané priamo alebo vo forme premenných, ku ktorým sú predtým priradené. Následne je predtým rozdelený reťazec znovu zložený. Jednotlivé príkazy sú generované zaradom a ukladané do poľa. Náhodne sa pritom aplikujú implementované metódy pre generovanie príkazov ako napríklad tvorba premennej vo forme textového poľa alebo textového reťazca a zlúčenie premenných. Dodatočne je možné pridávať medzi tieto príkazy aj iné redundantné príkazy alebo príkazy prislúchajúce ku konkrétnej biznis logike. Funkcionalitu sme testovali s aplikovaním maskovania obsahu a testovali s vykonaním javascriptu pomocou knižnice js2py~\footnote{\url{https://pypi.org/project/Js2Py/}}. Výstupné texty boli zhodné. Identifikovali sme aj problém s použitím deklarácií s použitím let, pri ktorých bolo potrebné konkrétny kód obaliť do funkcie inak mohlo dochádzať ku kolízii premenných. Použitie var namiesto let by problém vyriešilo, ale mohlo by spôsobiť aj problémy a malo by byť používané len výnimočne pre globálne deklarácie. 
+
+
+\section{Vloženie detekčnej logiky}
+
+Detekčná logika je hlavným obsahom honeytokenu. Do dokumentu musí byť vhodným spôsobom pridaná a následne je potrebné zabezpečiť zneprístupnenie informácií a zamedziť jej odhalenie.
+
+
+\subsection{Vloženie detekčného skriptu}
+
+Podstatným pre využitie a prepojenie predtým realizovaných metód pre klonovanie, minimalizáciu a utajovanie obsahu je samotné vloženie správy alebo skriptu. To musí byť maskované vzhľadom na požiadavku utajene informovať o konkrétnom obsahu. Celý proces realizujeme v niekoľkých krokoch, pričom využívame náhodné generátory pre vygenerovanie rôznych parametrov určujúci finálny výsledok:
+
+
+\begin{enumerate}
+	\item Príprava skriptu pre odosielanie hlásení na server. Dodatočne je možné pripraviť aj zoznam správ, ktoré sa budú posielať.
+
+	\item Príprava webových služieb pre manažovanie logov a samotnej kostry serveru.
+	
+	\item Klonovanie príslušnej časti webovej lokality.
+	
+	\item Načítanie skriptu pre detegovanie podozrivej aktivity, prípadne aj samostatných správ. 
+	
+	\item Zamaskovanie buď celého skriptu, pričom v neskorších fázach bude potrebné použiť funkciu eval pre jeho vykonanie po odmaskovaní. Dôležité je maskovanie jednotlivých správ samostatne kvôli ich utajeniu. Tie budú následne počas vykonávania odosielané. 
+	
+	\item Vloženie metód pre dešifrovanie konkrétneho obsahu s kódom metódy, ale nie samotných správ s dôrazom na maskovanie identifikátora použitých metód. Implementovanie tejto funkcionality priamo na serveri z dôvodu zistenia obsahu logov a ich následného spracovania.
+	
+	\item Rozdelenie obsahu do niekoľkých riadkov kódu, prípadne metód. Vhodné je aj zahrnúť tento obsah do kódu pre biznis logiku alebo pridať redundantný kód.
+	
+	\item V prípade maskovania celého skriptu je potrebné po domaskovaní zabezpečiť volanie funkcie eval pre jeho vykonanie.
+	
+	\item Vloženie celého kódu do script elementu a pripojenie ho do honeytokenu, respektíve webového dokumentu.
+	
+	\item Otestovanie spustením servera a otvorením honeytokenu. Odoslané hlásenia by mali byť zaznamenané.
+\end{enumerate}
+
+
+\subsection{Injekcia iframe elementu s konkrétnym obsahom}
+
+Chýbajúci dynamický obsah možno v rámci statického obsahu honeytokenu vložiť ako vnorený dokument pomocou iframe elementu. V konkrétnom dokumente konkrétnej webovej lokality môžme nahradiť už nejaký existujúci alebo vložiť nový. Pri nahradzovaní existujúceho by sme mali nahradiť aj celú poskytovanú biznis logiku. V niektorých prípadoch pre tieto účely možno použiť proxi server. Druhou možnosťou je propojiť iframe element, ktorý sa nemusí ani zobraziť. V tomto prípade vzrastá potencionálna hrozba detegovateľnosti honeypotu. Poskytnutie reálneho obsahu tak môže byť spoľahlivejšie a zaručí to aj zabránenie blokovaniu požiadaviek na server. Aj v tomto prípade uvádzame postup tvorbu takéhoto honeytokenu s dôrazom na náhodné určenie jednotlivých parametrov pri jeho tvorbe:
+
+\begin{enumerate}
+	\item Klonovanie príslušnej časti webovej lokality s webovým dokuemntom.
+
+	\item Vyhľadanie iframe elementu a zamenenie src atribútu za vlastnú webovú službu. Ak taký eleemnt neexistuje, alebo je komplikované napodobniť inú lokalitu, potom sa vytvorí nový iframe element s nastavenými rozmermi na 0.
+	
+	\item Pokiaľ bol nahradzovaný obsah iframe elemntu, potom sa zrealizuje klon webovej lokality na ktorú smeroval jeho pôvodný obsah a vloží sa do zdrojov servera alebo sa prispôsobí server tak aby robil proxy medzi pôvodnou lokalitou. V rámci proxy sa niektoré informácie môzu pozmeniť, aby útočník nedostal reálne biznis dáta.
+	
+	\item Doplnenie potrebného obsahu pre logovanie a ďalších potrebných služieb (napríklad prípadné proxy) na server.
+	
+	\item Maskovanie zvyšného obsahu vyššie opísanými technikami pre zmiatnutie útočníka.
+	
+	\item Otestovanie funkcionality spustením servera a otvorením honeytokenu. Správa o prístupe k danému obsahu by mala byť zaznamenaná.
 \end{enumerate}
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=latex 2021.10.31)  6 MAR 2022 00:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.12.9)  19 MAR 2022 15:06
 entering extended mode
 **./lowInteractionHoneypotCustomization.tex
 (lowInteractionHoneypotCustomization.tex
@@ -21,7 +21,7 @@ LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 -- Using 210mm x 297mm (a4) paper.
--- Using DVI output.
+-- Using PDF output.
 \@IEEEnormalsizeunitybaselineskip=\dimen141
 -- This is an 11 point document.
 \CLASSINFOnormalsizebaselineskip=\dimen142
@@ -211,10 +211,10 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 fg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: dvips.def on input line 105.
+Package graphics Info: Driver file: pdftex.def on input line 105.
 
-(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
-File: dvips.def 2017/06/20 v3.1d Graphics/color driver for dvips
+(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen171
 \Gin@req@width=\dimen172
@@ -224,8 +224,9 @@ Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 (C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: dvips.def on input line 225.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
@@ -272,16 +273,11 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-dvi
-ps.def
-File: l3backend-dvips.def 2021-02-18 L3 backend support: dvips
+(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count285
 \l__pdf_internal_box=\box55
-\g__pdf_backend_object_int=\count285
-\l__pdf_backend_content_box=\box56
-\l__pdf_backend_model_box=\box57
-\g__pdf_backend_annotation_int=\count286
-\g__pdf_backend_link_int=\count287
-\g__pdf_backend_link_sf_int=\count288
 )
 
 LaTeX Warning: Unused global option(s):
@@ -306,7 +302,29 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
 
 -- Lines per column: 50 (exact).
-\c@lstlisting=\count289
+
+(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count286
+\scratchdimen=\dimen177
+\scratchbox=\box56
+\nofMPsegments=\count287
+\nofMParguments=\count288
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count289
+\MPscratchDim=\dimen178
+\MPnumerator=\count290
+\makeMPintoPDFobject=\count291
+\everyMPtoPDFconversion=\toks26
+)
+(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+)
+\c@lstlisting=\count292
 
 Underfull \hbox (badness 10000) in paragraph at lines 53--54
 []\OT1/ptm/m/n/11 N[]zko in-ter-akt[]vne hon-ey-poty pre de-tek-ciu
@@ -317,7 +335,7 @@ Underfull \hbox (badness 2119) in paragraph at lines 61--62
 []\OT1/ptm/m/n/11 Pou[]zitie n[]astroja sle-duj[]uceho zmeny v r[]amci
  []
 
-[1
+[1{C:/Users/perde/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 
 
 ]
@@ -405,6 +423,139 @@ Underfull \hbox (badness 1540) in paragraph at lines 117--118
 [][]\OT1/ptm/m/n/11 Dal[]sie hashovanie a znepr[]stup[]novanie ob-sahu
  []
 
+
+Underfull \hbox (badness 4492) in paragraph at lines 119--120
+[]\OT1/ptm/m/n/11 Pr[]padn[]e pri-danie re-dun-dantn[]eho k[]odu alebo
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 132--133
+\OT1/ptm/m/n/11 k[]l[]u[]com bude pos-tup-nos[]t iden-ti-fik[]atorov met[]od, a
+by
+ []
+
+[3]
+Underfull \hbox (badness 2359) in paragraph at lines 134--135
+\OT1/ptm/m/n/11 zlib []) alebo brotli (kni[]znica brotli []). Vs-tupom
+ []
+
+
+Underfull \hbox (badness 2781) in paragraph at lines 134--135
+\OT1/ptm/m/n/11 v[]yslednej hod-noty v bin[]arnej podobe. Bolo preto
+ []
+
+
+Underfull \hbox (badness 1533) in paragraph at lines 134--135
+\OT1/ptm/m/n/11 znakom mo[]zn[]e. Pri vynechan[] ch[]yb nebolo sp[]atn[]e
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+\OT1/ptm/m/n/11 chyby pri in-tegr[]acii spomenut[]ych kom-presn[]ych
+ []
+
+
+Underfull \hbox (badness 2035) in paragraph at lines 134--135
+\OT1/ptm/m/n/11 met[]od. Nakoniec sa n[]am probl[]em po-drilo vyrie[]si[]t
+ []
+
+
+Underfull \hbox (badness 4001) in paragraph at lines 134--135
+\OT1/ptm/m/n/11 n[]astrojom pre quo-to-vanie url (kni[]znica urlib []),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+\OT1/ptm/m/n/11 url-lib.parse.quote[]from[]bytes(compressed[]bytes)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+\OT1/ptm/m/n/11 a met[]oda pre sp[]atn[]y pre-vod m[]a podobu
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+\OT1/ptm/m/n/11 url-lib.parse.unquote[]to[]bytes(encoded[]text)).
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+\OT1/ptm/m/n/11 Ako []dal[]sie met[]ody pre masko-vanie textu
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+\OT1/ptm/m/n/11 sme pou[]zili funkcional-itu pre quo-to-vanie url
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+\OT1/ptm/m/n/11 (url-lib.parse.quote[]plus(pure[]text)) a jeho sp[]atn[]e
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
+[]\OT1/ptm/m/n/11 V praxi okrem []standardnej minifik[]acie k[]odu
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
+\OT1/ptm/m/n/11 zah[]r[]naj[]ucej n[]ahradu pre-menn[]ych a odstr[]anenia
+ []
+
+
+Underfull \hbox (badness 1694) in paragraph at lines 143--144
+\OT1/ptm/m/n/11 pr[]azdneho mi-esta m[]o[]ze by[]t u[]zito[]cn[]e aj rozde-le-n
+ie
+ []
+
+[4]
+Underfull \hbox (badness 6110) in paragraph at lines 155--156
+\OT1/ptm/m/n/11 gener[]atory pre vy-gen-erovanie r[]oznych parametrov
+ []
+
+
+Underfull \hbox (badness 3668) in paragraph at lines 167--168
+[]\OT1/ptm/m/n/11 Zamaskovanie bu[]d cel[]eho skriptu, pri[]com v
+ []
+
+
+Underfull \hbox (badness 1418) in paragraph at lines 183--184
+\OT1/ptm/m/n/11 spo[]lahlivej[]sie a zaru[]c[] to aj zabr[]anenie bloko-va-niu
+
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 183--184
+\OT1/ptm/m/n/11 postup tvorbu tak[]ehoto hon-ey-to-kenu s d[]orazom na
+ []
+
+
+Underfull \hbox (badness 1762) in paragraph at lines 188--189
+[]\OT1/ptm/m/n/11 Vyh[]ladanie iframe el-e-mentu a zame-ne-nie src
+ []
+
+
+Underfull \hbox (badness 2277) in paragraph at lines 188--189
+\OT1/ptm/m/n/11 atrib[]utu za vlastn[]u we-bov[]u slu[]zbu. Ak tak[]y
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
+\OT1/ptm/m/n/11 eleemnt ne-ex-is-tuje, alebo je kom-p-liko-van[]e
+ []
+
+
+Underfull \hbox (badness 2012) in paragraph at lines 196--197
+[]\OT1/ptm/m/n/11 Otestovanie funkcional-ity spusten[]m servera a
+ []
+
+
+Underfull \hbox (badness 2772) in paragraph at lines 196--197
+\OT1/ptm/m/n/11 otvoren[]m hon-ey-to-kenu. Spr[]ava o pr[]stupe k
+ []
+
 (lowInteractionHoneypotCustomization.bbl)
 
 ** Conference Paper **
@@ -417,15 +568,26 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3] (lowInteractionHoneypotCustomization.aux) ) 
+[5] (lowInteractionHoneypotCustomization.aux) ) 
 Here is how much of TeX's memory you used:
- 5297 strings out of 479335
- 76186 string characters out of 2857109
- 418845 words of memory out of 3000000
- 22714 multiletter control sequences out of 15000+200000
- 431256 words of font info for 96 fonts, out of 3000000 for 9000
+ 5710 strings out of 479334
+ 81616 string characters out of 2857084
+ 423027 words of memory out of 3000000
+ 23102 multiletter control sequences out of 15000+200000
+ 444712 words of font info for 109 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,8n,74p,1339b,1019s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 68i,8n,74p,1770b,1019s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/perde/AppData/Local/Pr
+ograms/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/perde/AppData/Local/Program
+s/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/perde/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/perde/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/perde/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/perde/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on lowInteractionHoneypotCustomization.pdf (5 pages, 104235 byte
+s).
+PDF statistics:
+ 39 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on lowInteractionHoneypotCustomization.dvi (3 pages, 27004 bytes
-).
