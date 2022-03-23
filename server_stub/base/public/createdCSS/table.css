@@ -1,0 +1,67 @@
+table.tableProfile {
+	overflow: hidden;
+	border: 8px solid black !important;
+	border-radius: 50px !important;
+	border-collapse: separate;
+    border-spacing: 0;
+	width: 100%;
+}
+
+th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px;
+}
+
+.selectedTableHeading {
+	background-color: silver !important;
+}
+
+tr:nth-child(even) {
+  background-color: silver;
+}
+
+tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+.tableCaption {
+	display: table-caption;
+	caption-side: top;
+	font-weight: bold;
+	color: red;
+	font-size: 3rem;
+	text-align: center;
+}
+
+table~table {
+	margin-top: 3rem;
+}
+
+.titleText {
+	font-weight: bold;
+	font-size: 1.5rem;
+	
+	padding-left: 2rem;
+	padding-top: 0.5rem;
+	padding-bottom: 2rem;
+}
+
+.subtitleTable {
+	font-size: 1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	line-height: 1.5rem;
+}
+
+.titleColumn {
+	padding-left: 2rem;
+}
+
+.titleColumnText {
+	font-size: 2.5rem;
+	font-weight: bold;
+	padding: 1.5rem;
+}

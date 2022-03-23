@@ -1,0 +1,117 @@
+
+.tutorialLayout {
+	display: grid;
+	width: 100%;
+	grid-template-areas: "headerBlock headerBlock" "saltBlock -" "inputTextBlock inputTextBlock" "outputTextBlock outputTextBlock" "confirmButtonBlock confirmButtonBlock";
+	justify-content: center;
+	grid-gap: 0.5rem;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.headerBlock {
+	grid-area: headerBlock;
+}
+
+
+.saltBlock {
+	grid-area: saltBlock;
+}
+
+.inputTextBlock {
+	grid-area: inputTextBlock;
+}
+
+.outputTextBlock {
+	grid-area: outputTextBlock;
+}
+
+.confirmButtonBlock {
+	display: block;
+	grid-area: confirmButtonBlock;
+}
+
+.inputTutorial {
+	margin-left: 2rem;
+	height: 2rem;
+	width: 80%;
+	font-weight: bold;
+}
+
+.notFoundAlert {
+	position: absolute !important;
+	justify-self: center;
+	background-color: pink !important;
+	top: 2rem;
+}
+
+.notFoundAlertText {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: bold;
+	color: red;
+	font-family: monospace;
+}
+
+.imageSaltAndBCrypt {
+	width: 100%;
+	max-width: 550px;
+	justify-self: center;
+}
+
+.imageSchema {
+	width: 100%;
+	justify-self: center;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+}
+
+.flexCenter {
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+	flex-direction: column;
+	align-items: center;
+
+}
+
+li.pros {
+    list-style: disc outside none !important;
+    margin-left: 1em;
+}
+
+ul.pros {
+    margin: 1em;
+	padding-left: 2rem !important;
+	margin-left: 2rem;
+}
+
+.chapterMargin {
+	display: inline-block;
+	margin-top: 4rem;
+}
+
+.mainMargin {
+	margin-top: 2rem;
+	margin-bottom: 4rem;
+}
+
+@media(max-width: 1200px) {
+	.vastSchema {
+		display: none;
+	}
+	
+	.smallSchema {
+		display: block;
+	}
+}
+
+@media(min-width: 1200px) {
+	.vastSchema {
+		display: block;
+	}
+	
+	.smallSchema {
+		display: none;
+	}
+}

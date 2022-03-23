@@ -1,0 +1,45 @@
+
+
+.textWhoisTutorial {
+	background-color: #fff9e6;
+	border-radius: 50px;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	white-space: pre-wrap;
+}
+
+.chapterColumn {
+	text-align: center;
+	font-size: 2.5rem;
+	font-weight: bold;
+}
+
+.alignLeft {
+	text-align: left;
+}
+
+.textMonospaceWhois {
+	background-color: #fff9e6;
+	border-radius: 50px;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	
+	font-size: 18px;
+	line-height: 1.5;
+	margin-left: 1rem;
+	font-family: monospace;
+	white-space: pre-wrap;
+	padding-left: 3rem;
+	padding-right: 3rem;
+	text-align: left;
+}
+
+.textMonospaceWhoisList {
+	background-color: #fff9e6;
+	border-radius: 50px;
+	font-size: 18px;
+	line-height: 1.5;
+	font-family: monospace;
+	padding-left: 3rem;
+	padding-right: 3rem;
+}
