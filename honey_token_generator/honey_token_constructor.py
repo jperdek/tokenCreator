@@ -6,6 +6,9 @@ from content_downloader.website_copier_wrapper import copy
 import glob
 import os
 import re
+
+from content_minifier.content_minifier import process_directory
+from honey_token_generator.honey_token_customization import apply_customization_to_html_name
 from token_derivation.nodejs.base_server import create_server
 
 
@@ -61,26 +64,32 @@ def create_logger_honeypot_exmaple() -> None:
                  new_detection_address=listening_url)
 
 
-def copy_file_back(http_track_html_file: str, previous_token_path: str):
+def copy_file_back(http_track_html_file: str, previous_token_path: str, customization: dict = None):
     with open(http_track_html_file, "r", encoding="utf-8") as html_file:
         soup = BeautifulSoup(html_file.read(), "html.parser")
     source_path = http_track_html_file[:http_track_html_file.rfind("/") + 1]
     for link in soup.select("a"):
         url = source_path + link["href"]
         html_name = url[url.rfind("/"):]
+        if customization:
+            html_name = apply_customization_to_html_name(html_name, customization)
         copyfile(url, previous_token_path + html_name)
 
 
 def create_honeypots(honey_token_data: [],
                      path_to_server: str,
                      path_to_server_stub: str = "../examples/simple/server_stub/",
-                     http_track_move: bool = True) -> None:
+                     http_track_move: bool = True,
+                     minify_tokens: bool = True) -> None:
     controllers_for_server = []
     for token_data in honey_token_data:
         web_token_location = token_data["web_token_location"]
         result_token_path = token_data["result_token_path"]
         inject_code_path = token_data["inject_code_path"]
         listening_url = token_data["listening_url"]
+        customization = None
+        if "customization" in token_data:
+            customization = token_data["customization"]
         controller_for_server_temporary = token_data["controller"]
 
         listening_url_part = re.search(r"//[^/]+(/.*)$", listening_url).group(1)
@@ -96,7 +105,7 @@ def create_honeypots(honey_token_data: [],
                      result_path=result_token_path,
                      new_detection_address=listening_url)
         if http_track_move:
-            copy_file_back(result_token_path + "/index.html", previous_token_path)
+            copy_file_back(result_token_path + "/index.html", previous_token_path, customization)
             rmtree(result_token_path)
 
         controllers_for_server.append((controller_for_server_temporary["controller_type"],
@@ -109,6 +118,8 @@ def create_honeypots(honey_token_data: [],
     create_server(path_to_server_stub=path_to_server_stub,
                   path_to_server=path_to_server,
                   controllers=controllers_for_server)
+    if minify_tokens:
+        process_directory(previous_token_path)
 
 
 if __name__ == "__main__":

@@ -53,11 +53,11 @@ def minify_css(input_file: str, use_java: bool = True) -> None:
         os.remove(helper_file)
 
 
-def process_html(input_directory, debug=False):
+def process_directory(input_directory, debug=False):
     for file_name in os.listdir(input_directory):
         whole_file_path = os.path.join(input_directory, file_name)
         if os.path.isdir(whole_file_path):
-            process_html(whole_file_path)
+            process_directory(whole_file_path)
         else:
             try:
                 if file_name.endswith(".html"):
@@ -76,4 +76,4 @@ def process_html(input_directory, debug=False):
 
 
 if __name__ == "__main__":
-    process_html(sys.argv[1])
+    process_directory(sys.argv[1])

@@ -1,0 +1,43 @@
+[{
+  "honey_token_data": [{
+    "web_token_location": "https://www.bestoldgames.net/archon-ultra",
+    "result_token_path": "../examples/strategy2",
+    "inject_code_path": "../examples/simple/detectionCode.txt",
+    "listening_url": "http://localhost:5001/gameHelper",
+    "controller": {
+      "controller_type":  "logger",
+      "controller_name":  "archon_ultra",
+      "controller_file_name":  "game.archon_ultra",
+      "original_path": "../examples/simple/serverLoggerCode.txt"
+    },
+    "customization": {
+      "file_name": "upper"
+    }
+  },
+  {
+    "web_token_location": "https://www.bestoldgames.net/humans",
+    "result_token_path": "../examples/strategy2",
+    "inject_code_path": "../examples/simple/detectionCode.txt",
+    "listening_url": "http://localhost:5001/gameHelper3",
+    "controller": {
+      "controller_type":  "logger",
+      "controller_name":  "humans",
+      "controller_file_name":  "game.humans",
+      "original_path": "../examples/simple/serverLoggerCode.txt"
+    }
+  },
+  {
+    "web_token_location": "https://www.bestoldgames.net/diggers",
+    "result_token_path": "../examples/strategy2",
+    "inject_code_path": "../examples/simple/detectionCode.txt",
+    "listening_url": "http://localhost:5001/gameHelper2",
+    "controller": {
+      "controller_type":  "logger",
+      "controller_name":  "diggers",
+      "controller_file_name":  "game.diggers",
+      "original_path": "../examples/simple/serverLoggerCode.txt"
+    }
+  }],
+  "path_to_server": "../examples/strategy2/generatedServer",
+  "path_to_server_stub": "../examples/simple/server_stub/"
+}]
