@@ -46,3 +46,14 @@ class ControllerConstructor:
     def write_controller_to_file(path_to_server: str, controller_file_name: str, controller_code: list['str']):
         with open(path_to_server + "/controllers/" + controller_file_name + ".js", "w", encoding="utf-8") as file:
             file.writelines("\n".join(controller_code))
+
+    @staticmethod
+    def read_from_file(path: str):
+        with open(path, "r", encoding="utf-8") as file:
+            return file.read()
+
+    @staticmethod
+    def insert_detection_logic(path_to_detection_logic: str, listening_url: str) -> str:
+        detection_logic = ControllerConstructor.read_from_file(path_to_detection_logic)
+        detection_logic = detection_logic.replace("/replaceMe", listening_url)
+        return detection_logic

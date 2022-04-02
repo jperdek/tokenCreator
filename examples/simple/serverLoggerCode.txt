@@ -1,0 +1,4 @@
+router.post('/replaceMe', function(req, res){
+	var timestamps = moment().format('HH:mm:ss')
+	console.log("FILE OPENED AT: " + timestamps + ' From controller/index.js');
+});

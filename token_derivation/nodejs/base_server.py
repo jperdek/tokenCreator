@@ -1,11 +1,12 @@
-from token_derivation.nodejs.controller_info import ControllerInfo
+from token_derivation.nodejs.controller_info import ControllerInfo, ControllerLoggerInfo, ControllerContentInfo
+from distutils.dir_util import copy_tree
 
 
 class NodeJsBaseServer:
     def get_cors_handling_code(self, origin_domain = "*") -> str:
         return """
         app.use(function(req, res, next) {
-          res.header("Access-Control-Allow-Origin", """ + origin_domain + """");
+          res.header("Access-Control-Allow-Origin", \"""" + origin_domain + """\");
           res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
           res.header("Access-Control-Allow-Methods","GET,PUT,POST,DELETE");
           res.header("Host","http://localhost:5001");
@@ -57,14 +58,29 @@ class NodeJsBaseServer:
             file.writelines("\n".join(server_stub_code))
 
 
-def construct_whole_server(path_to_server: str, controllers: list['ControllerInfo']):
+def construct_whole_server(path_to_server_stub: str, path_to_server: str, controllers: list['ControllerInfo']):
+    copy_tree(path_to_server_stub, path_to_server)
     node_js_base_server = NodeJsBaseServer()
     base_server_stub = node_js_base_server.base_server_stub(controllers, path_to_server, add_cors=True)
     node_js_base_server.write_to_file(path_to_server + "/server.js", base_server_stub)
+
+
+def create_server(path_to_server_stub: str, path_to_server: str, controllers: list['tuple']):
+    controllers_insert = []
+    for controller_type, controller_name, controller_file_name, original_path, listening_url in controllers:
+        if controller_type == "logger":
+            controller = ControllerLoggerInfo(controller_name, controller_file_name, original_path, listening_url)
+        elif controller_type == "content":
+            controller = ControllerContentInfo(controller_name, controller_file_name, original_path)
+        else:
+            raise Exception("Unknown controller type! " + controller_type)
+        controllers_insert.append(controller)
+
+    construct_whole_server(path_to_server_stub, path_to_server, controllers_insert)
 
 
 if __name__ == "__main__":
     controllers_to_insert = [
         ControllerInfo("business_domain", "business.domain", "./example/battle-chess.html")
     ]
-    construct_whole_server("./generated", controllers_to_insert)
+    construct_whole_server("./server_stub", "./generated", controllers_to_insert)
