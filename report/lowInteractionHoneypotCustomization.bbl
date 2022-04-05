@@ -13,4 +13,14 @@ C.~Sanders.
 \newblock 2020.
 \newblock OCLC: 1293961192.
 
+\bibitem{scada_2014}
+C.~Scott.
+\newblock Designing and {Implementing} a {Honeypot} for a {SCADA} {Network}.
+\newblock page~39, 2014.
+
+\bibitem{spitzner_honeypots_2002}
+L.~Spitzner.
+\newblock {\em Honeypots: {Tracking} {Hackers}}.
+\newblock Addison-Wesley Longman Publishing Co., Inc., USA, 2002.
+
 \end{thebibliography}
