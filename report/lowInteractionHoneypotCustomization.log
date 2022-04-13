@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.12.9)  13 APR 2022 00:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=latex 2021.10.31)  13 APR 2022 23:33
 entering extended mode
 **./lowInteractionHoneypotCustomization.tex
 (lowInteractionHoneypotCustomization.tex
@@ -21,7 +21,7 @@ LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 -- Using 210mm x 297mm (a4) paper.
--- Using PDF output.
+-- Using DVI output.
 \@IEEEnormalsizeunitybaselineskip=\dimen141
 -- This is an 11 point document.
 \CLASSINFOnormalsizebaselineskip=\dimen142
@@ -211,10 +211,10 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 fg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 105.
+Package graphics Info: Driver file: dvips.def on input line 105.
 
-(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
+File: dvips.def 2017/06/20 v3.1d Graphics/color driver for dvips
 ))
 \Gin@req@height=\dimen171
 \Gin@req@width=\dimen172
@@ -224,9 +224,8 @@ Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 (C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Driver file: dvips.def on input line 225.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
@@ -273,11 +272,16 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
-tex.def
-File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count285
+(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-dvi
+ps.def
+File: l3backend-dvips.def 2021-02-18 L3 backend support: dvips
 \l__pdf_internal_box=\box55
+\g__pdf_backend_object_int=\count285
+\l__pdf_backend_content_box=\box56
+\l__pdf_backend_model_box=\box57
+\g__pdf_backend_annotation_int=\count286
+\g__pdf_backend_link_int=\count287
+\g__pdf_backend_link_sf_int=\count288
 )
 
 LaTeX Warning: Unused global option(s):
@@ -302,326 +306,360 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
 
 -- Lines per column: 50 (exact).
+\c@lstlisting=\count289
 
-(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
-ii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count286
-\scratchdimen=\dimen177
-\scratchbox=\box56
-\nofMPsegments=\count287
-\nofMParguments=\count288
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count289
-\MPscratchDim=\dimen178
-\MPnumerator=\count290
-\makeMPintoPDFobject=\count291
-\everyMPtoPDFconversion=\toks26
-)
-(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
-ase.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-)
-\c@lstlisting=\count292
-
-Underfull \hbox (badness 5622) in paragraph at lines 50--51
-[]\OT1/ptm/m/n/11 Medzi []urov[]nou in-ter-ak-cie hon-ey-po-tov je []casto
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+\OT1/ptm/m/n/11 (De-cep-tion ser-vice), emul[]acia cel[]eho opera[]cn[]eho
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
-[]\OT1/ptm/m/n/11 N[]zko in-ter-akt[]vne hon-ey-poty pre de-tek-ciu
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+\OT1/ptm/m/n/11 syst[]emu \OT1/ptm/m/it/11 (OS em-u-la-tion)\OT1/ptm/m/n/11 , e
+mul[]acia zran-ite[]lnosti
  []
 
 
-Underfull \hbox (badness 2119) in paragraph at lines 63--64
-[]\OT1/ptm/m/n/11 Pou[]zitie n[]astroja sle-duj[]uceho zmeny v r[]amci
+Underfull \hbox (badness 1442) in paragraph at lines 53--54
+\OT1/ptm/m/it/11 redirrec-tion) \OT1/ptm/m/n/11 a digit[]alna n[]avnada \OT1/pt
+m/m/it/11 (dig-i-tal bait) \OT1/ptm/m/n/11 [7].
  []
 
-[1{C:/Users/perde/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+\OT1/ptm/m/n/11 Typ-ick[]ym reprezen-tan-tom pre tech-niku digit[]alnej
+ []
+
+[1
 
 
 ]
-Underfull \hbox (badness 5652) in paragraph at lines 67--68
-[]\OT1/ptm/m/n/11 Vytvorenie a odoslanie in-for-muj[]ucej spr[]avy,
- []
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 55.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 55.
 
-
-Underfull \hbox (badness 4096) in paragraph at lines 67--68
-\OT1/ptm/m/n/11 re-spekt[]ve logu na server. Spr[]avu by malo
- []
-
-
-Underfull \hbox (badness 2012) in paragraph at lines 80--81
-[]\OT1/ptm/m/n/11 Manipulovanie so []strukt[]urou we-bov[]eho doku-
- []
-
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 89.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 89.
-
-(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+ (C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 55.
 
 
 (C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 4647) in paragraph at lines 91--92
-[]\OT1/ptm/m/n/11 Pr[]klad pou[]zitia n[]astroja HT-Track pre z[]skanie
- []
-
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 9
-3.
-(C:\Program Files\MiKTeX\tex/latex/psnfss\ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-Underfull \hbox (badness 1803) in paragraph at lines 98--99
-\OT1/ptm/m/n/11 bov[]eho doku-mentu dy-nam-icky s pou[]zit[]m kni[]znice
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+[][][]$\OT1/ptm/m/n/9 https : / / www . smokescreen . io / practical -[] honeyp
+ots -[] a -[] list -[] of -[] open -[]
  []
 
 
-Underfull \hbox (badness 2253) in paragraph at lines 98--99
-\OT1/ptm/m/n/11 Beau-ti-ful-soup. Typ-ickou pou[]ziadavkou je up-rave-nie
+Underfull \hbox (badness 5622) in paragraph at lines 61--62
+[][]\OT1/ptm/m/n/11 Medzi []urov[]nou in-ter-ak-cie hon-ey-po-tov je []casto
  []
 
 
-Underfull \hbox (badness 2980) in paragraph at lines 100--101
-[]\OT1/ptm/m/n/11 Do rie[]senia sme pri-dali nieko[]lko n[]astrojov pre
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+[][]\OT1/ptm/m/n/11 N[]zko in-ter-akt[]vne hon-ey-poty pre de-tek-ciu
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 100--101
-\OT1/ptm/m/n/11 htmlmin [] s nas-taven[]m pre vy-mazanie pr[]azdneho
+Underfull \hbox (badness 2119) in paragraph at lines 75--76
+[][]\OT1/ptm/m/n/11 Pou[]zitie n[]astroja sle-duj[]uceho zmeny v r[]amci
  []
 
 
-Underfull \hbox (badness 7468) in paragraph at lines 100--101
-\OT1/ptm/m/n/11 javascriptu sme pou[]zili Clo-sure Com-piler [] od
+Underfull \hbox (badness 3158) in paragraph at lines 75--76
+\OT1/ptm/m/n/11 s[]uborov[]eho syst[]emu, pr[]padne in[]eho syst[]emu
+ []
+
+
+Underfull \hbox (badness 1648) in paragraph at lines 75--76
+\OT1/ptm/m/n/11 v r[]amci ktor[]eho sa uve-den[]e to-keny, vy-bran[]e
  []
 
 [2]
-Underfull \hbox (badness 3646) in paragraph at lines 102--103
-\OT1/ptm/m/n/11 je CORS hlavne pri zabezpe[]cenej[]s[]ch ap-lik[]aci[]am.
+Underfull \hbox (badness 5652) in paragraph at lines 79--80
+[][]\OT1/ptm/m/n/11 Vytvorenie a odoslanie in-for-muj[]ucej spr[]avy,
  []
 
 
-Underfull \hbox (badness 1939) in paragraph at lines 104--105
-[]\OT1/ptm/m/n/11 Podstatn[]ymi s[]u n[]astroje pre masko-vanie ob-sahu.
+Underfull \hbox (badness 4096) in paragraph at lines 79--80
+\OT1/ptm/m/n/11 re-spekt[]ve logu na server. Spr[]avu by malo
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
-[]\OT1/ptm/m/n/11 Klonovanie we-bov[]ych doku-men-tov z danej
+Underfull \hbox (badness 2012) in paragraph at lines 92--93
+[][]\OT1/ptm/m/n/11 Manipulovanie so []strukt[]urou we-bov[]eho doku-
  []
 
 
-Underfull \hbox (badness 2293) in paragraph at lines 117--118
+Underfull \hbox (badness 4647) in paragraph at lines 103--104
+[][]\OT1/ptm/m/n/11 Pr[]klad pou[]zitia n[]astroja HT-Track pre z[]skanie
+ []
+
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
+05.
+(C:\Program Files\MiKTeX\tex/latex/psnfss\ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 2980) in paragraph at lines 112--113
+[][]\OT1/ptm/m/n/11 Do rie[]senia sme pri-dali nieko[]lko n[]astrojov pre
+ []
+
+
+Underfull \hbox (badness 1755) in paragraph at lines 112--113
+\OT1/ptm/m/n/11 htmlmin [] s nas-taven[]m pre vy-mazanie pr[]azdneho
+ []
+
+[3]
+Underfull \hbox (badness 2970) in paragraph at lines 114--115
+\OT1/ptm/m/n/11 je CORS hlavne pri zabezpe[]cenej[]s[]ch ap-lik[]aci[]ach.
+ []
+
+
+Underfull \hbox (badness 1939) in paragraph at lines 116--117
+[][]\OT1/ptm/m/n/11 Podstatn[]ymi s[]u n[]astroje pre masko-vanie ob-sahu.
+ []
+
+
+Underfull \hbox (badness 2368) in paragraph at lines 121--122
+\OT1/ptm/m/n/11 charak-ter-i-stick[]e []crty. Au-tom-a-ti-zo-vanie a zav[]adzan
+ie
+ []
+
+
+Underfull \hbox (badness 1824) in paragraph at lines 123--124
+\OT1/ptm/m/n/11 a dom[]enu z ktorej maj[]u by[]t vytvoren[]e. V r[]amci
+ []
+
+
+Underfull \hbox (badness 1616) in paragraph at lines 123--124
+\OT1/ptm/m/n/11 jeho ob-sahu ale vytvor[] dostato[]cn[]y po[]cet tak[]ychto
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
+[][]\OT1/ptm/m/n/11 Klonovanie we-bov[]ych doku-men-tov z danej
+ []
+
+
+Underfull \hbox (badness 2293) in paragraph at lines 131--132
 \OT1/ptm/m/n/11 zo-van[]y. V pr[]pade nepou[]zitia iframu sa vy-
  []
 
 
-Underfull \hbox (badness 1540) in paragraph at lines 119--120
-[][]\OT1/ptm/m/n/11 Dal[]sie hashovanie a znepr[]stup[]novanie ob-sahu
+Underfull \hbox (badness 1540) in paragraph at lines 133--134
+[][][]\OT1/ptm/m/n/11 Dal[]sie hashovanie a znepr[]stup[]novanie ob-sahu
  []
 
 
-Underfull \hbox (badness 4492) in paragraph at lines 121--122
-[]\OT1/ptm/m/n/11 Pr[]padn[]e pri-danie re-dun-dantn[]eho k[]odu alebo
+Underfull \hbox (badness 4492) in paragraph at lines 135--136
+[][]\OT1/ptm/m/n/11 Pr[]padn[]e pri-danie re-dun-dantn[]eho k[]odu alebo
  []
 
 
-Underfull \hbox (badness 1454) in paragraph at lines 134--135
-\OT1/ptm/m/n/11 k[]l[]u[]com bude pos-tup-nos[]t iden-ti-fik[]atorov met[]od, a
-by
+Underfull \hbox (badness 1442) in paragraph at lines 148--149
+\OT1/ptm/m/n/11 podoby. Funkcional-itu sme zostro-jili tvor-bou triedy
  []
 
-[3]
-Underfull \hbox (badness 2359) in paragraph at lines 136--137
-\OT1/ptm/m/n/11 zlib []) alebo brotli (kni[]znica brotli []). Vs-tupom
- []
-
-
-Underfull \hbox (badness 2781) in paragraph at lines 136--137
-\OT1/ptm/m/n/11 v[]yslednej hod-noty v bin[]arnej podobe. Bolo preto
+[4]
+Underfull \hbox (badness 8132) in paragraph at lines 150--151
+\OT1/ptm/m/n/11 funkcional-ity umo[]z[]nuj[]ucej vytvori[]t z textu hash
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 136--137
-\OT1/ptm/m/n/11 znakom mo[]zn[]e. Pri vynechan[] ch[]yb nebolo sp[]atn[]e
+Underfull \hbox (badness 1478) in paragraph at lines 150--151
+\OT1/ptm/m/n/11 tex-tov[]y re[]tazec. Probl[]emom kom-presn[]ych met[]od je
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
-\OT1/ptm/m/n/11 chyby pri in-tegr[]acii spomenut[]ych kom-presn[]ych
+Underfull \hbox (badness 1540) in paragraph at lines 150--151
+\OT1/ptm/m/n/11 vi-acer[]ych met[]od ani mo[]zn[]e. Rov-nako pre-ty-po-vanie
  []
 
 
-Underfull \hbox (badness 2035) in paragraph at lines 136--137
-\OT1/ptm/m/n/11 met[]od. Nakoniec sa n[]am probl[]em po-drilo vyrie[]si[]t
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
+\OT1/ptm/m/n/11 sp[]osobovalo chyby pri in-tegr[]acii spomenut[]ych
  []
 
 
-Underfull \hbox (badness 4001) in paragraph at lines 136--137
-\OT1/ptm/m/n/11 n[]astrojom pre quo-to-vanie url (kni[]znica urlib []),
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 \OT1/ptm/m/n/11 url-lib.parse.quote[]from[]bytes(compressed[]bytes)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 \OT1/ptm/m/n/11 a met[]oda pre sp[]atn[]y pre-vod m[]a podobu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 \OT1/ptm/m/n/11 url-lib.parse.unquote[]to[]bytes(encoded[]text)).
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 \OT1/ptm/m/n/11 Ako []dal[]sie met[]ody pre masko-vanie textu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 \OT1/ptm/m/n/11 sme pou[]zili funkcional-itu pre quo-to-vanie url
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
-\OT1/ptm/m/n/11 (url-lib.parse.quote[]plus(pure[]text)) a jeho sp[]atn[]e
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
+\OT1/ptm/m/n/11 (url-lib.parse.quote[]plus(pure[]text)) a jeho sp[]atn[]y
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--146
-[]\OT1/ptm/m/n/11 V praxi okrem []standardnej minifik[]acie k[]odu
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
+[][]\OT1/ptm/m/n/11 V praxi okrem []standardnej minifik[]acie k[]odu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--146
-\OT1/ptm/m/n/11 zah[]r[]naj[]ucej n[]ahradu pre-menn[]ych a odstr[]anenia
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
+\OT1/ptm/m/n/11 zah[]r[]naj[]ucej n[]ahradu pre-menn[]ych a odstr[]anenie
  []
 
 
-Underfull \hbox (badness 1694) in paragraph at lines 145--146
+Underfull \hbox (badness 1694) in paragraph at lines 159--160
 \OT1/ptm/m/n/11 pr[]azdneho mi-esta m[]o[]ze by[]t u[]zito[]cn[]e aj rozde-le-n
 ie
  []
 
-[4]
-Underfull \hbox (badness 6110) in paragraph at lines 157--158
+[5]
+Underfull \hbox (badness 6110) in paragraph at lines 171--172
 \OT1/ptm/m/n/11 gener[]atory pre vy-gen-erovanie r[]oznych parametrov
  []
 
 
-Underfull \hbox (badness 3668) in paragraph at lines 169--170
-[]\OT1/ptm/m/n/11 Zamaskovanie bu[]d cel[]eho skriptu, pri[]com v
+Underfull \hbox (badness 3668) in paragraph at lines 183--184
+[][]\OT1/ptm/m/n/11 Zamaskovanie bu[]d cel[]eho skriptu, pri[]com v
  []
 
 
-Underfull \hbox (badness 1418) in paragraph at lines 185--186
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
+[][]\OT1/ptm/m/n/11 Vlo[]zenie met[]od pre odmasko-vanie alebo
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
+\OT1/ptm/m/n/11 de[]sifrovanie konkr[]etneho ob-sahu s k[]odom
+ []
+
+
+Underfull \hbox (badness 1931) in paragraph at lines 185--186
+\OT1/ptm/m/n/11 met[]ody, ale nie samotn[]ych spr[]av s d[]orazom
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+[][]\OT1/ptm/m/n/11 Otestovanie funk[]cnosti spusten[]m servera a
+ []
+
+
+Underfull \hbox (badness 1418) in paragraph at lines 199--200
 \OT1/ptm/m/n/11 spo[]lahlivej[]sie a zaru[]c[] to aj zabr[]anenie bloko-va-niu
 
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 190--191
-[]\OT1/ptm/m/n/11 Vyh[]ladanie iframe el-e-mentu a zame-ne-nie src
+Underfull \hbox (badness 1762) in paragraph at lines 204--205
+[][]\OT1/ptm/m/n/11 Vyh[]ladanie iframe el-e-mentu a zame-ne-nie src
  []
 
 
-Underfull \hbox (badness 2277) in paragraph at lines 190--191
+Underfull \hbox (badness 2277) in paragraph at lines 204--205
 \OT1/ptm/m/n/11 atrib[]utu za vlastn[]u we-bov[]u slu[]zbu. Ak tak[]y
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
-\OT1/ptm/m/n/11 eleemnt ne-ex-is-tuje, alebo je kom-p-liko-van[]e
- []
-
-
-Underfull \hbox (badness 2012) in paragraph at lines 198--199
-[]\OT1/ptm/m/n/11 Otestovanie funkcional-ity spusten[]m servera a
- []
-
-
-Underfull \hbox (badness 2772) in paragraph at lines 198--199
-\OT1/ptm/m/n/11 otvoren[]m hon-ey-to-kenu. Spr[]ava o pr[]stupe k
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 204--205
-[]\OT1/ptm/m/n/11 Po n[]avrhu kus-tomi-zo-vate[]ln[]eho honey to-kenu
+\OT1/ptm/m/n/11 el-e-ment ne-ex-is-tuje, alebo je kom-p-liko-van[]e
+ []
+
+[6]
+Underfull \hbox (badness 1817) in paragraph at lines 212--213
+[][]\OT1/ptm/m/n/11 Otestovanie funkcional-ity spusten[]m serveru a
  []
 
 
-Underfull \hbox (badness 3557) in paragraph at lines 204--205
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
+[][]\OT1/ptm/m/n/11 Po n[]avrhu kus-tomi-zo-vate[]ln[]eho honey to-kenu
+ []
+
+
+Underfull \hbox (badness 2582) in paragraph at lines 218--219
+\OT1/ptm/m/n/11 Ich tvorbu sme preto rozdelili na nieko[]lko []cast[].
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 218--219
+\OT1/ptm/m/n/11 pr[]slu[]sn[]eho s[]uboru je potrebn[]a manu[]alna rev[]zia a
+
+ []
+
+
+Underfull \hbox (badness 3557) in paragraph at lines 218--219
 \OT1/ptm/m/n/11 vytvore-nie konkr[]etnych in[]stanci[] honey to-kenov a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--205
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
 \OT1/ptm/m/n/11 serverov pod[]la vytvorenej kon-figur[]acie. N[]asledne
  []
 
-[5]
-Underfull \hbox (badness 2020) in paragraph at lines 206--207
-[]\OT1/ptm/m/n/11 Zabezpe[]cenie kus-tomiz[]acie API pre ko-mu-nik[]aciu
+
+Underfull \hbox (badness 2020) in paragraph at lines 220--221
+[][]\OT1/ptm/m/n/11 Zabezpe[]cenie kus-tomiz[]acie API pre ko-mu-nik[]aciu
  []
 
 
-Underfull \hbox (badness 2197) in paragraph at lines 206--207
+Underfull \hbox (badness 2197) in paragraph at lines 220--221
 \OT1/ptm/m/n/11 ur[]cenie konkr[]etnych parametrov v kon-figur[]acii pre
  []
 
+[7]
+Underfull \hbox (badness 2735) in paragraph at lines 244--245
+[][]\OT1/ptm/m/n/11 Kustomiz[]acia je pri hon-ey-po-toch ve[]lmi d[]ole[]zit[]a
 
-Underfull \hbox (badness 2744) in paragraph at lines 224--225
-\OT1/ptm/m/n/11 obidve strat[]egie. Gener[]ator tak vytvo-ril 3 to-keny,
- []
-
-[6]
-Underfull \hbox (badness 2735) in paragraph at lines 230--231
-[]\OT1/ptm/m/n/11 Kustomiz[]acia je pri hon-ey-po-toch ve[]lmi d[]ole[]zit[]a
  []
 
 
-Underfull \hbox (badness 1546) in paragraph at lines 230--231
-\OT1/ptm/m/n/11 hlavne kv[]oli zmen[]seniu miery ich de-teko-vate[]lnosti.
+Underfull \hbox (badness 1558) in paragraph at lines 244--245
+\OT1/ptm/m/n/11 hlavne kv[]oli zmen[]seniu miery ich de-te-go-v-ate[]lnosti.
  []
 
 
-Underfull \hbox (badness 1577) in paragraph at lines 232--233
-[]\OT1/ptm/m/n/11 Celkovo sme vytvo-rili dva za-k-ladn[]e typy honey
+Underfull \hbox (badness 1577) in paragraph at lines 246--247
+[][]\OT1/ptm/m/n/11 Celkovo sme vytvo-rili dva za-k-ladn[]e typy honey
  []
 
 
-Underfull \hbox (badness 1527) in paragraph at lines 232--233
+Underfull \hbox (badness 1527) in paragraph at lines 246--247
 \OT1/ptm/m/n/11 to-kenov. Je-den vyu[]z[]vaja iframe el-e-menty a druh[]y
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 232--233
-\OT1/ptm/m/n/11 raven[]ych in-form[]aci[], ktor[]e bud[]u dy-nam-icky po-mo-
+Underfull \hbox (badness 3780) in paragraph at lines 246--247
+\OT1/ptm/m/n/11 Funkcionalita fun-guj[]uca ako proxy, ktor[]a z[]arove[]n
  []
 
 
-Underfull \hbox (badness 4013) in paragraph at lines 234--235
-\OT1/ptm/m/n/11 ich re-aliz[]aciu pod[]la kon-figura[]cn[]eho s[]uboru. Ti-eto
+Underfull \hbox (badness 1975) in paragraph at lines 246--247
+\OT1/ptm/m/n/11 pozme[]nuje pr-e-brat[]y ob-sah nie je niekedy funk[]cn[]a
  []
 
 
-Underfull \hbox (badness 4872) in paragraph at lines 234--235
-\OT1/ptm/m/n/11 serverov. Ich tvorba m[]o[]ze by[]t tie[]z za-u-tom-a-ti-zo-
+Underfull \hbox (badness 3386) in paragraph at lines 246--247
+\OT1/ptm/m/n/11 Kus-tomiz[]acia je preto prac-nej[]sia. []Dal[]sou zis-te-nou
  []
 
-(lowInteractionHoneypotCustomization.bbl)
+(lowInteractionHoneypotCustomization.bbl
+Underfull \hbox (badness 1400) in paragraph at lines 22--30
+[][]\OT1/ptm/m/n/9 C. Moore and A. Al-Nemrat.  An Anal-y-sis of Hon-ey-
+ []
+
+[8])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -633,26 +671,17 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[7] (lowInteractionHoneypotCustomization.aux) ) 
-Here is how much of TeX's memory you used:
- 5712 strings out of 479334
- 81653 string characters out of 2857084
- 424033 words of memory out of 3000000
- 23104 multiletter control sequences out of 15000+200000
- 444712 words of font info for 109 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 68i,8n,74p,1938b,1019s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/perde/AppData/Local/Pr
-ograms/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/perde/AppData/Local/Program
-s/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/perde/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/perde/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/perde/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/perde/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on lowInteractionHoneypotCustomization.pdf (7 pages, 118990 byte
-s).
-PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+[9
 
+] (lowInteractionHoneypotCustomization.aux) ) 
+Here is how much of TeX's memory you used:
+ 5310 strings out of 479335
+ 76481 string characters out of 2857109
+ 420143 words of memory out of 3000000
+ 22727 multiletter control sequences out of 15000+200000
+ 431256 words of font info for 96 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 68i,8n,74p,1942b,1019s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on lowInteractionHoneypotCustomization.dvi (9 pages, 99548 bytes
+).

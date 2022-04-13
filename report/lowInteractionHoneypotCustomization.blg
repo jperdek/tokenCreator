@@ -7,45 +7,45 @@ Reallocating 'name_of_file' (item size: 1) to 10 items.
 Database file #1: honeypots.bib
 Warning--empty publisher in sanders_intrusion_2020
 Warning--empty journal in scada_2014
-You've used 4 entries,
+You've used 15 entries,
             2118 wiz_defined-function locations,
-            520 strings with 4317 characters,
-and the built_in function-call counts, 1030 in all, are:
-= -- 95
-> -- 39
-< -- 1
-+ -- 16
-- -- 12
-* -- 51
-:= -- 184
-add.period$ -- 14
-call.type$ -- 4
-change.case$ -- 15
+            590 strings with 6966 characters,
+and the built_in function-call counts, 5550 in all, are:
+= -- 568
+> -- 230
+< -- 9
++ -- 90
+- -- 74
+* -- 340
+:= -- 877
+add.period$ -- 55
+call.type$ -- 15
+change.case$ -- 76
 chr.to.int$ -- 0
-cite$ -- 6
-duplicate$ -- 52
-empty$ -- 89
-format.name$ -- 12
-if$ -- 218
+cite$ -- 17
+duplicate$ -- 252
+empty$ -- 443
+format.name$ -- 74
+if$ -- 1232
 int.to.chr$ -- 0
-int.to.str$ -- 4
-missing$ -- 7
-newline$ -- 24
-num.names$ -- 8
-pop$ -- 29
+int.to.str$ -- 15
+missing$ -- 18
+newline$ -- 80
+num.names$ -- 32
+pop$ -- 106
 preamble$ -- 1
-purify$ -- 14
+purify$ -- 64
 quote$ -- 0
-skip$ -- 30
+skip$ -- 187
 stack$ -- 0
-substring$ -- 24
-swap$ -- 8
-text.length$ -- 1
+substring$ -- 299
+swap$ -- 81
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 10
+type$ -- 52
 warning$ -- 2
-while$ -- 9
-width$ -- 5
-write$ -- 46
+while$ -- 54
+width$ -- 17
+write$ -- 181
 (There were 2 warnings)

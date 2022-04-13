@@ -1,4 +1,39 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{cabral_review_2019}
+W.~Cabral, C.~Valli, L.~Sikos, and S.~Wakeling.
+\newblock Review and {Analysis} of {Cowrie} {Artefacts} and {Their} {Potential}
+  to be {Used} {Deceptively}.
+\newblock In {\em 2019 {International} {Conference} on {Computational}
+  {Science} and {Computational} {Intelligence} ({CSCI})}, pages 166--171, Las
+  Vegas, NV, USA, Dec. 2019. IEEE.
+
+\bibitem{mansoori_yalih_2014}
+M.~Mansoori, I.~Welch, and Q.~Fu.
+\newblock {YALIH}, {Yet} {Another} {Low} {Interaction} {Honeyclient}.
+\newblock {\em New Zealand}, 149:9, 2014.
+
+\bibitem{mohammed_honeypots_2015}
+M.~Mohammed and H.-u. Rehman.
+\newblock {\em Honeypots and {Routers}: {Collecting} {Internet} {Attacks}}.
+\newblock Auerbach Publications, 0 edition, Dec. 2015.
+
+\bibitem{jahankhani_analysis_2015}
+C.~Moore and A.~Al-Nemrat.
+\newblock An {Analysis} of {Honeypot} {Programs} and the {Attack} {Data}
+  {Collected}.
+\newblock In H.~Jahankhani, A.~Carlile, B.~Akhgar, A.~Taal, A.~G. Hessami, and
+  A.~Hosseinian-Far, editors, {\em Global {Security}, {Safety} and
+  {Sustainability}: {Tomorrow}'s {Challenges} of {Cyber} {Security}}, volume
+  534, pages 228--238. Springer International Publishing, Cham, 2015.
+\newblock Series Title: Communications in Computer and Information Science.
+
+\bibitem{nagpal_catch_2015}
+B.~Nagpal, N.~Singh, N.~Chauhan, and P.~Sharma.
+\newblock {CATCH}: {Comparison} and analysis of tools covering honeypots.
+\newblock In {\em 2015 {International} {Conference} on {Advances} in {Computer}
+  {Engineering} and {Applications}}, pages 783--786, Ghaziabad, India, Mar.
+  2015. IEEE.
 
 \bibitem{ng_honeypot_2018}
 C.~K. Ng, L.~Pan, and Y.~Xiang.
@@ -6,6 +41,20 @@ C.~K. Ng, L.~Pan, and Y.~Xiang.
   {Framework}}.
 \newblock {SpringerBriefs} on {Cyber} {Security} {Systems} and {Networks}.
   Springer Singapore, Singapore, 2018.
+
+\bibitem{qassrawi_deception_2010}
+M.~T. Qassrawi and Z.~Hongli.
+\newblock Deception {Methodology} in {Virtual} {Honeypots}.
+\newblock In {\em 2010 {Second} {International} {Conference} on {Networks}
+  {Security}, {Wireless} {Communications} and {Trusted} {Computing}}, pages
+  462--467, Wuhan, China, 2010. IEEE.
+
+\bibitem{reti_escape_2021}
+D.~Reti and N.~Becker.
+\newblock Escape the {Fake}: {Introducing} {Simulated} {Container}-{Escapes}
+  for {Honeypots}.
+\newblock {\em arXiv:2104.03651 [cs]}, Apr. 2021.
+\newblock arXiv: 2104.03651.
 
 \bibitem{sanders_intrusion_2020}
 C.~Sanders.
@@ -22,5 +71,31 @@ C.~Scott.
 L.~Spitzner.
 \newblock {\em Honeypots: {Tracking} {Hackers}}.
 \newblock Addison-Wesley Longman Publishing Co., Inc., USA, 2002.
+
+\bibitem{spitzner_honeypots_2003}
+L.~Spitzner.
+\newblock Honeypots: catching the insider threat.
+\newblock In {\em 19th {Annual} {Computer} {Security} {Applications}
+  {Conference}, 2003. {Proceedings}.}, pages 170--179, Las Vegas, Nevada, USA,
+  2003. IEEE.
+
+\bibitem{smokescreen_team_open_nodate}
+S.~TEAM.
+\newblock Open {Source} {Honeypots} {That} {Detect} {Threats} {For} {Free}.
+
+\bibitem{valicek_creation_2017}
+M.~Valicek, G.~Schramm, M.~Pirker, and S.~Schrittwieser.
+\newblock Creation and {Integration} of {Remote} {High} {Interaction}
+  {Honeypots}.
+\newblock In {\em 2017 {International} {Conference} on {Software} {Security}
+  and {Assurance} ({ICSSA})}, pages 50--55, Altoona, PA, July 2017. IEEE.
+
+\bibitem{zulkurnain_analysis_2018}
+N.~F. Zulkurnain, A.~F. Rebitanim, and N.~A. Malik.
+\newblock Analysis of {THUG}: {A} {Low}-{Interaction} {Client} {Honeypot} to
+  {Identify} {Malicious} {Websites} and {Malwares}.
+\newblock In {\em 2018 7th {International} {Conference} on {Computer} and
+  {Communication} {Engineering} ({ICCCE})}, pages 135--140, Kuala Lumpur, Sept.
+  2018. IEEE.
 
 \end{thebibliography}
