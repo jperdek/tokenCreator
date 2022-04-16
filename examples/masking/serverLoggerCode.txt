@@ -1,0 +1,25 @@
+const PythonShell = require('python-shell').PythonShell;
+router.post('/replaceMe', function(req, res){
+   	var concealedData = req.body.element;
+	let buff = Buffer.from(concealedData, 'base64');
+	concealedData = buff.toString('ascii');
+
+	let options = {
+ 		mode: 'text',
+  		pythonOptions: ['-u'], // get print results in real-time
+  		args: ['-unconcealing', '-key', '<<[key]>>']
+	};
+	var pythonShell = new PythonShell('content_concealing_script.py', options);
+	pythonShell.send(concealedData);
+
+	pythonShell.on('message', function (message) {
+  		console.log("FINAL LOG:");
+  		console.log(message);
+	});
+
+	// end the input stream and allow the process to exit
+	pythonShell.end(function (err,code,signal) {
+  		if (err) console.log(err);
+	});
+	
+});

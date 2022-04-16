@@ -1,0 +1,15 @@
+function AddZero(num) {
+    return (num >= 0 && num < 10) ? "0" + num : num + "";
+}
+function aa(){
+
+let data = {element: <<[data]>>};
+   
+fetch("http://localhost:5001/input", {
+	method: "POST",
+	headers: {'Content-Type': 'application/json', 'set-cookie': "My cookie"}, 
+	body: JSON.stringify(data)
+}).then(res => {
+});
+}
+aa();

@@ -3,7 +3,7 @@ from distutils.dir_util import copy_tree
 
 
 class NodeJsBaseServer:
-    def get_cors_handling_code(self, origin_domain = "*") -> str:
+    def get_cors_handling_code(self, origin_domain="*") -> str:
         return """
         app.use(function(req, res, next) {
           res.header("Access-Control-Allow-Origin", \"""" + origin_domain + """\");
@@ -37,7 +37,7 @@ class NodeJsBaseServer:
                 server_stub_code.append("app.set('view engine', 'html');")
 
                 server_stub_code.append("app.use(cors());")
-                server_stub_code.append("app.use(bodyParser.json());")
+                server_stub_code.append("app.use(bodyParser.json({limit: '50mb'}));")
 
             server_stub_code.append("""app.use('/', """ + controller_name + """);""")
             if index == 0:
@@ -58,25 +58,29 @@ class NodeJsBaseServer:
             file.writelines("\n".join(server_stub_code))
 
 
-def construct_whole_server(path_to_server_stub: str, path_to_server: str, controllers: list['ControllerInfo']):
+def construct_whole_server(path_to_server_stub: str, path_to_server: str,
+                           controllers: list['ControllerInfo'], conceal_methods: str = None):
     copy_tree(path_to_server_stub, path_to_server)
     node_js_base_server = NodeJsBaseServer()
     base_server_stub = node_js_base_server.base_server_stub(controllers, path_to_server, add_cors=True)
     node_js_base_server.write_to_file(path_to_server + "/server.js", base_server_stub)
 
 
-def create_server(path_to_server_stub: str, path_to_server: str, controllers: list['tuple']):
+def create_server(path_to_server_stub: str, path_to_server: str,
+                  controllers: list['tuple'], conceal_methods: str = None):
     controllers_insert = []
-    for controller_type, controller_name, controller_file_name, original_path, listening_url in controllers:
+    for controller_type, controller_name, controller_file_name, original_path\
+            , listening_url, conceal_methods in controllers:
         if controller_type == "logger":
-            controller = ControllerLoggerInfo(controller_name, controller_file_name, original_path, listening_url)
+            controller = ControllerLoggerInfo(controller_name, controller_file_name,
+                                              original_path, listening_url, conceal_methods)
         elif controller_type == "content":
             controller = ControllerContentInfo(controller_name, controller_file_name, original_path)
         else:
             raise Exception("Unknown controller type! " + controller_type)
         controllers_insert.append(controller)
 
-    construct_whole_server(path_to_server_stub, path_to_server, controllers_insert)
+    construct_whole_server(path_to_server_stub, path_to_server, controllers_insert, conceal_methods=conceal_methods)
 
 
 if __name__ == "__main__":

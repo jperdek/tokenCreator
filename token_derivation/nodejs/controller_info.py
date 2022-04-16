@@ -31,13 +31,15 @@ class ControllerContentInfo(ControllerInfo):
 
 
 class ControllerLoggerInfo(ControllerInfo):
-    def __init__(self, controller_name: str, controller_file_name: str, original_path: str, listening_url: str):
+    def __init__(self, controller_name: str, controller_file_name: str, original_path: str,
+                 listening_url: str, conceal_methods: str = None):
         super().__init__(controller_name, controller_file_name, original_path)
         self.listening_url = listening_url
+        self.conceal_methods = conceal_methods
 
     def add_controller_to_instance(self, path_to_generated_server: str):
         specific_services = [
-            ControllerConstructor.insert_detection_logic(self.original_path, self.listening_url)
+            ControllerConstructor.insert_detection_logic(self.original_path, self.listening_url, self.conceal_methods)
         ]
         controller_construction = ControllerConstructor.construct_controller(specific_services)
         ControllerConstructor.write_controller_to_file(

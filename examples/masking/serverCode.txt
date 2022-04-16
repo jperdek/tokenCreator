@@ -1,0 +1,12 @@
+router.get('/render.html', function(req, res){
+	console.log("FILE OPENED!!!!");
+	fs.readFile('./render.html',function(error, content){
+		if(error){
+			res.writeHead(500);
+			res.end();
+		} else {
+			res.writeHead(200, { 'Content-type': 'text/html' });
+			res.end(content, 'utf-8');
+		}
+	});
+});

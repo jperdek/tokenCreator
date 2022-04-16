@@ -53,7 +53,8 @@ class ControllerConstructor:
             return file.read()
 
     @staticmethod
-    def insert_detection_logic(path_to_detection_logic: str, listening_url: str) -> str:
+    def insert_detection_logic(path_to_detection_logic: str, listening_url: str, conceal_methods: str = None) -> str:
         detection_logic = ControllerConstructor.read_from_file(path_to_detection_logic)
         detection_logic = detection_logic.replace("/replaceMe", listening_url)
+        detection_logic = detection_logic.replace("<<[key]>>", conceal_methods)
         return detection_logic

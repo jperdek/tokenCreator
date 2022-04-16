@@ -1,7 +1,9 @@
+import base64
 from shutil import rmtree, copyfile
 
 from bs4 import BeautifulSoup, Tag
 from content_concealing.concealing_for_injection import ConcealingForInjection
+from content_concealing.content_concealing import ContentConcealing
 from content_downloader.website_copier_wrapper import copy
 import glob
 import os
@@ -36,8 +38,11 @@ def get_code_to_inject(inject_file):
 
 
 def inject_detection_code(inject_code_path: str, result_path: str,
-                          html_file_name: str, new_detection_address: str) -> None:
+                          html_file_name: str, new_detection_address: str,
+                          text_to_insert: str = None) -> None:
     code_to_inject = get_code_to_inject(inject_code_path)
+    if text_to_insert:
+        code_to_inject = code_to_inject.replace("<<[data]>>", text_to_insert)
     code_to_inject = code_to_inject.replace("http://localhost:5001/input", new_detection_address)
     searched_file = glob.glob(result_path + "/**/*" + html_file_name + "*", recursive=True)[0]
     script_content = ConcealingForInjection.conceal_content_to_execute(code_to_inject)
@@ -45,19 +50,40 @@ def inject_detection_code(inject_code_path: str, result_path: str,
     insert_detection_script(searched_file, detection_script)
 
 
-def create_token(web_token_location: str, inject_code_path: str, result_path: str, new_detection_address: str) -> None:
+def create_token(web_token_location: str,
+                 inject_code_path: str,
+                 result_path: str,
+                 new_detection_address: str,
+                 text_to_insert: str = None) -> None:
     copy(web_token_location, result_path)
     html_file_name = web_token_location[web_token_location.rfind('/'):]
-    inject_detection_code(inject_code_path, result_path, html_file_name, new_detection_address)
+    inject_detection_code(inject_code_path, result_path, html_file_name, new_detection_address, text_to_insert)
 
 
-def create_logger_honeypot_exmaple() -> None:
+def create_logger_honeypot_example2_masking() -> None:
+    content_data = "Attacker is looking for old games. He got battle chess!"
+    concealed_text, conceal_methods = ContentConcealing.random_conceal_text(content_data)
+
+    listening_url = "http://localhost:5001/newone"
+    listening_url_part = re.search(r"//[^/]+(/.*)$", listening_url).group(1)
+    create_server(path_to_server_stub="../examples/simple/server_stub/",
+                  path_to_server="../examples/masking/generatedServer",
+                  controllers=[("logger", "business_domain", "business.domain",
+                                "../examples/masking/serverLoggerCode.txt", listening_url_part, conceal_methods)],)
+    create_token(web_token_location="https://www.bestoldgames.net/battle-chess",
+                 inject_code_path="../examples/masking/detectionCode.txt",
+                 result_path="../examples/masking/generatedToken",
+                 new_detection_address=listening_url,
+                 text_to_insert="\"" + base64.b64encode(concealed_text.encode()).decode() + "\"")
+
+
+def create_logger_honeypot_example() -> None:
     listening_url = "http://localhost:5001/newone"
     listening_url_part = re.search(r"//[^/]+(/.*)$", listening_url).group(1)
     create_server(path_to_server_stub="../examples/simple/server_stub/",
                   path_to_server="../examples/simple/generatedServer",
                   controllers=[("logger", "business_domain", "business.domain",
-                                "../examples/simple/serverLoggerCode.txt", listening_url_part)])
+                                "../examples/simple/serverLoggerCode.txt", listening_url_part, None)])
     create_token(web_token_location="https://www.bestoldgames.net/battle-chess",
                  inject_code_path="../examples/simple/detectionCode.txt",
                  result_path="../examples/simple/generatedToken",
@@ -111,7 +137,7 @@ def create_honeypots(honey_token_data: [],
         controllers_for_server.append((controller_for_server_temporary["controller_type"],
                                        controller_for_server_temporary["controller_name"],
                                        controller_for_server_temporary["controller_file_name"],
-                                       controller_for_server_temporary["original_path"], listening_url_part))
+                                       controller_for_server_temporary["original_path"], listening_url_part, None))
 
     if not os.path.exists(path_to_server):
         os.makedirs(path_to_server)
@@ -123,4 +149,5 @@ def create_honeypots(honey_token_data: [],
 
 
 if __name__ == "__main__":
-    create_logger_honeypot_exmaple()
+    # create_logger_honeypot_example()
+    create_logger_honeypot_example2_masking()
