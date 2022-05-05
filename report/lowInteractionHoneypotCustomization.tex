@@ -5,6 +5,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
+\usepackage{grffile}
 \usepackage{xcolor}
 \usepackage{textcomp}
 \usepackage{float}
@@ -154,11 +155,30 @@ Nakoniec sme implementovali spomenuté metódy pre maskovanie a odmaskovanie. Me
 Metóda na odmaskovanie požaduje na vstupe maskovaný text a identifikátor všetkých použitých metód pre maskovanie. V rámci tejto metódy sa vykoná reverzná aplikácia uvedených metód v opačnom poradí ako boli použité pri maskovaní. Výsledkom by mal byť odmaskovaný text v podobe v akej bol pred jeho utajením.
 
 
+\begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
+					\begin{center}
+									\includegraphics[width=\linewidth]{fig/masking.png}
+									\caption{Ukrytie obsahu webového dokumentu}
+									\label{contentConcealing}
+					\end{center}
+\end{figure}
+
+
 \subsection{Zamlženie kódu jeho rozdelením a vykonaním v rámci druhého kódu}
 
 V praxi okrem štandardnej minifikácie kódu zahŕňajúcej náhradu premenných a odstránenie prázdneho miesta môže byť užitočné aj rozdelenie kódu na viaceré časti. Ak sa pred rozdelením aplikuje maskovanie obsahu z predchádzajúcej časti dostávame tak dômyselne utajený obsah. Týmto obsahom by mala byť najčastejšie správa o postupe útočníka, ale môže ním byť aj samotný zdrojový kód. V prípade takéhoto spracovania zdrojového kódu ako reťazca je potrebné vykonať metódu eval. V rámci nej sa zdrojový kód zapísaný ako textový reťazec vykoná. Použitie tejto metódy je stále veľkým bezpečnostným riskom, a preto by sa malo takému použitiu vyhnúť. Ideálne kód predĺžiť rozdelením jednotlivých príkazov, lepším prepletením kódu s bizis logikou alebo pridaním nepotrebných a redundantných častí.
 
 V rámci našej implementácie sme umožnili rozdeliť textový reťazec na viaceré časti s použitím premenných a polí. Do polí sú tieto časti pridávané priamo alebo vo forme premenných, ku ktorým sú predtým priradené. Následne je predtým rozdelený reťazec znovu zložený. Jednotlivé príkazy sú postupne vytvárané a ukladané do poľa v poradí v akom boli vygenerované. Náhodne sa pritom aplikujú implementované metódy pre generovanie príkazov ako napríklad tvorba premennej vo forme textového poľa alebo textového reťazca a zlúčenie premenných. Dodatočne je možné pridávať medzi tieto príkazy aj iné redundantné príkazy alebo príkazy prislúchajúce ku konkrétnej biznis logike. Funkcionalitu sme testovali s aplikovaním maskovania obsahu a testovali s vykonaním javascriptu pomocou knižnice js2py~\footnote{\url{https://pypi.org/project/Js2Py/}}. Výstupné texty boli zhodné. Identifikovali sme aj problém s použitím deklarácií využívajúce kľúčové slovo let, pri ktorých bolo potrebné konkrétny kód obaliť do funkcie. V opačnom prípade by mohlo dochádzať ku kolízii premenných. Použitie var namiesto let by problém vyriešilo, ale mohlo by spôsobiť aj problémy. Var by mal byť používaný len výnimočne pre globálne deklarácie. 
+
+
+\begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
+					\begin{center}
+									\includegraphics[width=\linewidth]{fig/codeScattering.png}
+									\caption{Zneprehľadnenie kódu jeho rozptýlením}
+									\label{codeScattering}
+					\end{center}
+\end{figure}
+
 
 
 \section{Vloženie detekčnej logiky}
@@ -194,6 +214,40 @@ Podstatným pre využitie a prepojenie predtým realizovaných metód pre klonov
 \end{enumerate}
 
 
+\begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
+					\begin{center}
+									\includegraphics[width=\linewidth]{fig/senderCodeToken.png}
+									\caption{Honey token s detekčnou logikou}
+									\label{senderCodeToken}
+					\end{center}
+\end{figure}
+
+\begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
+					\begin{center}
+									\includegraphics[width=\linewidth]{fig/maskingClientCode.png}
+									\caption{Detekčný skript - klientská časť}
+									\label{maskingClientCode}
+					\end{center}
+\end{figure}
+
+\begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
+					\begin{center}
+									\includegraphics[width=\linewidth]{fig/maskingServerCode.png}
+									\caption{Logovanie obsahu - serverovská časť}
+									\label{maskingServerCode}
+					\end{center}
+\end{figure}
+
+\begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
+					\begin{center}
+									\includegraphics[width=\linewidth]{fig/burpSuite.png}
+									\caption{Odchytenie výstražnej správy}
+									\label{burpSuiteCapturing}
+					\end{center}
+\end{figure}
+
+
+
 \subsection{Injekcia iframe elementu s konkrétnym obsahom}
 
 Potrebný dynamický obsah možno v rámci statického obsahu honey tokenu vložiť ako vnorený dokument pomocou iframe elementu. V konkrétnom dokumente konkrétnej webovej lokality môžeme nahradiť nejaký existujúci alebo vložiť nový. Pri nahradzovaní existujúceho by sme mali nahradiť aj celú poskytovanú biznis logiku. V niektorých prípadoch pre tieto účely možno použiť proxi server. Druhou možnosťou je propojiť iframe element, ktorý sa nemusí ani zobraziť. V tomto prípade vzrastá potencionálna hrozba detegovateľnosti honeypotu. Poskytnutie reálneho obsahu tak môže byť spoľahlivejšie a zaručí to aj zabránenie blokovaniu požiadaviek na server. Aj v tomto prípade uvádzame postup tvorby takéhoto honey tokenu s dôrazom na náhodné určenie jednotlivých parametrov:
@@ -212,12 +266,39 @@ Potrebný dynamický obsah možno v rámci statického obsahu honey tokenu vlož
 	\item Otestovanie funkcionality spustením serveru a otvorením honey tokenu. Správa o prístupe k danému obsahu by mala byť zaznamenaná.
 \end{enumerate}
 
+\begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
+					\begin{center}
+									\includegraphics[width=\linewidth]{fig/iframeToken.png}
+									\caption{Honey token vytvorený z iframe elementu}
+									\label{iframeToken}
+					\end{center}
+\end{figure}
+
+
 
 \section{Automatizované generovanie honey tokenov}
 
 Po návrhu kustomizovateľného honey tokenu bolo potrebné realizovať aj ich masové generovanie zosúladené so zvolenou stratégiou. Vhodné je zabezpečiť aj rozšíriteľnosť pre aplikovanie ľubovoľnej stratégie. Ich tvorbu sme preto rozdelili na niekoľko častí. V prvej fáze sa podľa špecifických kritérií vytvorí JSON konfiguračný súbor s parametrami určujúcimi základné komponenty a ich orientáciu. Túto fázu je možné aj automatizovať. Pri automatickom vytvorení príslušného súboru je potrebná manuálna revízia a úprava výsledných hodnôt. Druhou fázou je samotné vytvorenie konkrétnych inštancií honey tokenov a serverov podľa vytvorenej konfigurácie. Následne rovnako možno manuálne upraviť výsledné časti, tak aby pôsobili čo najdôveryhodnejšie.
 
+\begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
+					\begin{center}
+									\includegraphics[width=\linewidth]{fig/configurationFile.png}
+									\caption{Ukážka časti konfiguračného súboru}
+									\label{configurationFile}
+					\end{center}
+\end{figure}
+
+
 Zabezpečenie kustomizácie API pre komunikáciu klienta a serveru v rámci zvolenej stratégie vyžaduje určenie konkrétnych parametrov v konfigurácii pre obidve časti zároveň. Príkladom môže byť konkrétna URL na ktorej bude server získavať konrétne informácie od klienta. Server môže na tejto adrese sprístupňovať zvolený obsah, odmaskovávať skrytý obsah správ a rovnako logovať prichádzajúce správy. Klient musí byť schopný odoslať správu vo vopred navrhnutom formáte na túto URL. Pre každý honey token sa zvolí reprezentujúci odkaz na existujúci webový dokument podľa ktorého sa má vytvoriť. Už v tejto fáze je možné rozhodnúť o minifikácii vybraného obsahu a ďalších doplnkoch a zmenách. Okrem samotného prispôsobenia a falšovania webového dokumentu je pri konkrétnych stratégiách potrebné zvoliť aký skript sa má použiť pri komunikácii so serverom a zároveň pomocou ďalších metód aj zamaskovať. Skript by mal byť napísaný v Javascripte a obsahovať pre framework rozpoznateľné pomenovania dôležitých častí, ktoré v rámci konkretneho použitia budú za behu nahradené za hodnoty z konfiguračného súboru. Príkladom takejto časti môže byť už spomínaná URL adresa, ale aj reťazec identifikujúci aplikované maskovacie metódy. Podobným spôsobom sa vytvorí aj funkcionalita samotného serveru. Server môže byť vytvorený v ľubovoľnom programovacom jazyku podporujúcom nástroje pre komunikáciu s týmito dokumentami. Viacero honey tokenov by malo byť schopných komunikovať s jedným serverom. V každom z dokumentov najvyššej úrovne v konfiguračnom JSON súbore sa špecifikujú honey tokeny a práve jeden server s príslušnými rozhraniami pre ne. Vzhľadom na potrebu odovzdania informácií výhradne sieťovou komunikáciu je prítomnosť serveru nevyhnutná. 
+
+\begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
+					\begin{center}
+									\includegraphics[width=\linewidth]{fig/massTokenGeneration.png}
+									\caption{Masová tvorba honey tokenov}
+									\label{massHoneyTokenProduction}
+					\end{center}
+\end{figure}
+
 
 Nami vytvorené riešenie podporuje automatické generovanie častí NodeJS~\footnote{\url{https://nodejs.org/en/}} serveru. V jednoduchom prototype sa skopíruje nevyhnutná funkcionalita a postupne sa pridávajú ďalšie časti, ktoré sa podľa potreby upravujú podľa hodnôt v konfiguračnom súbore. Samotné metódy pre spracovanie príchodzích dopytov by mali byť rovnako napísané v oddelenom súbore s rozpoznateľnými hodnotami pre používaný rámec. Kód z týchto súborov rámec podľa konfigurácie zahrnie na príslušné miesto. Pri realizácii konkrétnej stratégie je tak potrebné napísať niekoľko takýchto súborov s príslušnou funkcionalitou. 
 
