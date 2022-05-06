@@ -12,9 +12,8 @@
 \usepackage{listings}
 \usepackage[hyphens]{url}
 \usepackage{pythonhighlight}
-\usepackage[slovak]{babel}
 
-\lstset{xleftmargin=2em}
+
 \lstdefinelanguage{JavaScript}{
   keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
   keywordstyle=\color{blue}\bfseries,
@@ -75,16 +74,14 @@ nízko interaktívne honeypoty, detekcia nepovoleného vstupu, kustomizácia hon
 \end{IEEEkeywords}
 
 
-\section{Úvod} \label{introduction}
+\section{Úvod}
 
 Honeypoty sú bezpečnostným zdrojom, ktorý generuje upozornenie pri zachytení nadviazania interakcie s ním \cite{sanders_intrusion_2020}. Napríklad v podobe prieskumu, útoku alebo pri kompromitácii. Často lákajú infiltrovaný subjekt, a pri ich dobrom maskovaní a umiestnení môžu pomôcť odhaliť neoprávnený prístup, odhalené prístupové údaje, dokonca spomaliť aktivity útočníka vrátane odhalenia nultého útoku a rovnako aj zistiť niektoré ním pri útoku aplikované postupy. Bežní používatelia by nemali s honeypotom vôbec interagovať, ale ani vedieť o tejto funkcionalite. Prihlásenie sa do takéhoto systému alebo otvorenie a manipulácia s dokumentom, respektíve honey tokenom \cite{ng_honeypot_2018} je preto automaticky podozrivá, a malo by byť pomocou oznámení na ňu upozornené. Honeypoty neriešia špecifický problém, a pokiaľ s nimi nikto neinteraguje ich hodnota je pre organizáciu veľmi nízka. V praxi môžu byť realizované rôznymi spôsobmi v rámci orientácie na špecifický cieľ. Tým môže byť aj detekcia neoprávnených aktivít znalých členov v organizácii vrátane možného požitia nových typov útokov \cite{spitzner_honeypots_2003}.
 
 V našej práci sme sa zamerali na nízko interaktívne webové honey tokeny odosielajúce varovné hlásenia pri pokuse získať z nich fiktívne biznis informácie. Zamerali sme sa na možné spôsoby realizácie týchto tokenov s čo najmenšou závislosťou na ich umiestnení a procesoch nevyhnutných pre ich sledovanie, a to tak aby sme mohli zabezpečiť kustomizáciu bez závislosti na externých faktoroch.
 
-Obsah článku je zoradený nasledovne. Sekcia~\ref{honeypotsForIntrusionDetection} charakterizuje honeypoty a ich zaradenie do kategórií s dôrazom na spôsob ich použitia. Porovnanie nízko interaktívnych honeypotov s vysoko interaktívnymi je obsahom sekcie~\ref{benefitsOfLowInteractionHoneyTokens}. Návrhom nízko interaktívnych honey tokenov je venovaná kapitola~\ref{designOfLowInteractiveHoneyToken}. Popísané sú tu možné spôsoby využitia webových technológií ich pri konštrukcii a následnej kustomizácii. Sekcia~\ref{automatizationOfHoneyTokenCustomization} opisuje automatizáciu kustomizácie navrhnutých honey tokenov.  Návrhom a implementáciou spôsobov utajenia a zneprehľadnenia logovaného obsahu s možnosťou analýzy aj klientskými aplikáciami sa zaoberáme v sekcii~\ref{designAndImplementationOfConcealingTools}. Sekcia~\ref{detectionLogicInsertion} približuje postup tvorby detekčnej logiky nízko interaktívnych webových honey tokenov v rámci dvoch typov. Prvý je založený na skripte, ktorý odosiela informácie na server a druhý získava dynamický obsah pomocou iframe elementu. Automatizovaným generovaním jednotlivých honey tokenov podľa predstavených spôsobov uplatňujúcim zvolenú stratégiu lákania útočníka sa zaoberá sekcia~\ref{automaticGeneratingOfHoneyTokens}. Evaluácia funkčnosti a ďalších vlastností riešenia bola vyhodnotená v sekcii~\ref{evaluationOfHoneyTokenCustomizations}. Sekcia~\ref{conclusions} sumarizuje výsledky navrhnutého spôsobu generovania a kustomizácie nízko interaktívnych honey tokenov pre detegovanie neoprávneného prístupu a predstavuje budúce možnosti smerovania práce.
 
-
-\section{Honeypoty pre detekciu neoprávneného prístupu} \label{honeypotsForIntrusionDetection}
+\section{Honeypoty pre detekciu neoprávneného prístupu}
 
 Pre detekciu neoprávneného prístupu v rámci internej siete organizácie je najvhodnejšie použiť produkčné honeypoty \cite{jahankhani_analysis_2015}. Svojou nízkou mierou false pozitív dokážu identifikovať väčšinu pokusov o vniknutie do internej siete, kompromitáciu systému alebo jeho časti. Druhou možnosťou sú aj výskumné honeypoty, ale vzhľadom na ich typické nasadenie s priamim prístupom do verejnej siete môžu byť kompromitované kýmkoľvek. Získané informácie o použitých prihlasovacích údajoch a ďalších aktivitách nie sú preto často relevantné. Zároveň by takého honeypoty mali dosahovať vyššiu mieru interaktínosti.
 
@@ -94,18 +91,18 @@ Honeypot nástroje sú dostupné ako komerčné alebo aj ako open source riešen
 
 
 
-\section{Benefity nízko interaktívnych honeypotov pre detekciu neoprávneného prístupu} \label{benefitsOfLowInteractionHoneyTokens}
+\section{Benefity nízko interaktívnych honeypotov pre detekciu neoprávneného prístupu}
 
 Medzi úrovňou interakcie honeypotov je často potrebné robiť trade-off. Napríklad nízko úrovňové honeypoty je jednoduché nainštalovať, ľahko emulujú niektoré služby. Riziko je nízke ale rovnako je limitovaná aj poskytnutá informácia o aktivite útočníka \cite{spitzner_honeypots_2002}. Často nevyžadujú zmeny v existujúcej topológii siete alebo na zariadeniach \cite{scada_2014}. Nízko interaktívne honeypoty sú väčšinou produkčné honeypoty určené na ochranu organizácie \cite{spitzner_honeypots_2002}. Naopak vysoko interaktívne honeypoty je väčšinou náročné nainštalovať, nakonfigurovať a nasadiť. Pri použití dokerizácie je ich tvorba automatizovaná a jednoduchá aj pre nešpecializovaného administrátora. Bezpečnostný expert je potrebný aj v tomto prípade, a to kvôli monitorovaniu a analýze logov vyžadujúcej znalosti slabín konkrétneho nástroja pri filtrovaní aktivít v systéme \cite{valicek_creation_2017}. Nízko interaktívne honeypoty poskytujúce informácie s nízkou konkrétnosťou nevyžadujú ich zložitú analýzu. Iba upozorňujú na potencionálne nežiadúce aktivity. Pre overenie týchto aktivít sú už ale experti potrební. Vysosko interaktívne honeypoty rovnako poskytujú skutočné služby namiesto simulácií, a preto predstavujú vysoké bezpečnostné riziko pri zneužití. Riešením v prípade detegovania ich zneužitia pre kontajnerizované aplikácie orchestrované pomocou orchestrátora Kubernetes môže byť ich automatické resetovanie \cite{reti_escape_2021}. Ceľkový prehľad porovnania jednotlivých typov honeypotov je vypracovaný v tabuľke uverejnenej v \cite{nagpal_catch_2015}. 
 
 
 
-\section{Návrh nízko interaktívneho honey tokenu z webových dokumentov} \label{designOfLowInteractiveHoneyToken}
+\section{Návrh nízko interaktívneho honey tokenu z webových dokumentov}
 
 Nízko interaktívne honeypoty pre detekciu neoprávneného prístupu by mali zahŕňať mechanizmy pre generovanie informácie o príslušnej udalosti. Tie by mali byť dostatočne maskované, tak aby sa útočník o svojom odhalení najlepšie ani nedozvedel. V svojej práci sme sa zamerali na webové dokumenty. 
 
 
-\subsection{Mechanizmy pre logovanie aktivity s webovým tokenom} \label{mechanismForLoggingActivity}
+\subsection{Mechanizmy pre logovanie aktivity s webovým tokenom}
 
 Analyzovali sme rôzne spôsoby vloženia spomenutého mechanizmu do webového dokumentu. Zamerali sme sa na prípady, keď sa manipuluje s webovým dokumentom neposkytovaným priamo v rámci nejakého spusteného servera. Výsledný honey token v podobe konkrétneho dokumentu bude poskytovať obmedzené možnosti interakcie s ním, a tým sa zabráni aj jeho zneužitiu. Identifikovali sme nasledovné prípady pre umožnenie sledovania interakcie s uvedeným dokumentom:
 
@@ -120,7 +117,7 @@ Analyzovali sme rôzne spôsoby vloženia spomenutého mechanizmu do webového d
 Obmedzenia na menované spôsoby sú zavedené z dôvodu ochrán pred internetovými hrozbami, v rámci ktorých nie je povolené zapisovať na disk pomocou prehliadača štandardným spôsobom. Rovnako ukladanie je obmedzené na použitie cookies, ktoré si používateľ spravidla môže prezerať. Pri aplikácii preto zostáva odoslať správu iba výmenou za fiktívne zdanlivo cenné informácie, ktoré sú ku dokumentu priradené.
   
 
-\subsection{Nástroje pre maskovanie logiky honeypotu a ich význam pre kustomizáciu} \label{toolsForConcealingCustomization}
+\subsection{Nástroje pre maskovanie logiky honeypotu a ich význam pre kustomizáciu}
 
 Pri tvorbe funkcionality umožňujúcej detekovať manipuláciu s týmito tokenmi a ich ďalšiu kustomizáciu sme použili nástroje pre:
 
@@ -154,7 +151,7 @@ Do riešenia sme pridali niekoľko nástrojov pre zamlženie a minfikáciu súbo
 Podstatnými sú nástroje pre maskovanie obsahu. Dáta je možné uložiť do viacerých častí, ktoré sa v priebehu vykonania zložia. To núti používateľa aby súbor reálne otvoril v prehliadači, nechal vykonať kód a tým umožnil aj vykonanie skrytej sledovacej logiky. Opäť by sprístupnenie obsahu malo spočívať na komunikácii so serverom, inak sledovacia logika neoznámi manipuláciu s tokenom. Rovnako je možné použiť base64 hash, ktorým ukryjeme obsah spolu so sledovacou logikou pred vyhľadaním zvonka. Alternatívou je prevod do hexadecimálneho formátu alebo použitie knižnice pre obalenie dát. Existujú rôzne formáty, používaným môže byť gzip. 
 
 
-\section{Automatizácia kustomizácie honey tokenu} \label{automatizationOfHoneyTokenCustomization}
+\section{Automatizácia kustomizácie honey tokenu}
 
 Kustomizácia je podstatná pre zníženie pravdepodobnosti detekcie honeypotu. V praxi dochádza k fingerprintingu \cite{mohammed_honeypots_2015}, pri ktorom útočník na základe určitých charakteristických znakov odhalí honeypot. Príkladom môžu byť rôzne preklepy alebo nedostatočné schopnosti pri simulácii reálnych nástrojov. Ďalším príkladom môže byť odoslanie chybovej správy so status kódom 200 namiesto príslušného chybového kódu. Imitácia webového servera v tomto prípade zlyhala. Pri overovaní pravosti sa útočník sústredí hlavne na tieto usvedčujúce charakteristické črty. Automatizovanie a zavádzanie náhodnosti pri kustomizácii by malo útočníkom sťažiť schopnosť takejto detekcie.
 
@@ -176,12 +173,12 @@ V rámci samotnej automatizácie sa vykonajú kroky v nasledovnej postupnosti:
 \end{enumerate}
 
 
-\section{Návrh a implementácia nástrojov pre utajenie obsahu} \label{designAndImplementationOfConcealingTools}
+\section{Návrh a implementácia nástrojov pre utajenie obsahu}
 
 Ukrytie obsahu konkrétnych správ ale aj celých skriptov môže byť v rámci statických webových dokumentov nevyhnutné. Zároveň je potrebné aplikovať takýto postup na každú zahrnutú biznis informáciu, ktorá by neskôr mala byť sprístupnená a prezentovaná v rámci konkrétneho honey tokenu. Sprístupnia sa potom už iba konkrétne fiktívne biznis informácie. Útočník by si potom nemal všimnúť konkrétne logy a ich obsah. Rovnako by nemal ani blokovať požiadavky smerujúce na server kvôli jeho potencionálnemu záujmu o biznis obsah. Uvedená funkcionalita by mala zabezpečiť doručenie rôznych druhov informácií odosielaných z rôznych častí, respektíve skriptov, webového dokumentu, a zvýšiť tak možnosti informovania o činnosti útočníka.
 
 
-\subsection{Utajenie obsahu kompresiou a kódovaním} \label{contentConcealing}
+\subsection{Utajenie obsahu kompresiou a kódovaním}
 
 Pre budúci generátor honey tokenov sme navrhli funkcionalitu, ktorá bude obsah niekoľko ráz maskovať s použitím náhodne vybraných metód uplatnených zvolený počet krát. Výsledkom bude maskovaný obsah a kľúčom bude postupnosť identifikátorov metód, slúžiaci pre budúce navrátenie zamaskovaného textu do čitateľnej podoby. Funkcionalitu sme zostrojili tvorbou triedy podporujúcej dve základné metódy pre maskovanie a odmaskovanie. Tie konkrétne implementácie dediace od nej prekryli vlastnými využívajúcimi svoju funkcionalitu a umožnili tak náhradu za túto základnú triedu, čo dopomohlo k náhodnému výberu konkrétnej metódy. V základnej triede sme implementovali nástroje pre náhodný výber metódy, získanie metódy podľa identifikátora, funkcionalitu umožňujúcu maskovať a rovnako odmaskovať konkrétny obsah.
 
@@ -202,7 +199,7 @@ Metóda na odmaskovanie požaduje na vstupe maskovaný text a identifikátor vš
 
 
 
-\subsection{Zamlženie kódu jeho rozdelením a vykonaním v rámci druhého kódu} \label{codeObfuscation}
+\subsection{Zamlženie kódu jeho rozdelením a vykonaním v rámci druhého kódu}
 
 V praxi okrem štandardnej minifikácie kódu zahŕňajúcej náhradu premenných a odstránenie prázdneho miesta môže byť užitočné aj rozdelenie kódu na viaceré časti. Ak sa pred rozdelením aplikuje maskovanie obsahu z predchádzajúcej časti dostávame tak dômyselne utajený obsah. Týmto obsahom by mala byť najčastejšie správa o postupe útočníka, ale môže ním byť aj samotný zdrojový kód. V prípade takéhoto spracovania zdrojového kódu ako reťazca je potrebné vykonať metódu eval. V rámci nej sa zdrojový kód zapísaný ako textový reťazec vykoná. Použitie tejto metódy je stále veľkým bezpečnostným riskom, a preto by sa malo takému použitiu vyhnúť. Ideálne kód predĺžiť rozdelením jednotlivých príkazov, lepším prepletením kódu s bizis logikou alebo pridaním nepotrebných a redundantných častí.
 
@@ -254,17 +251,8 @@ Podstatným pre využitie a prepojenie predtým realizovaných metód pre klonov
 \end{enumerate}
 
 
-\begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
-					\begin{center}
-									\includegraphics[width=\linewidth]{fig/senderCodeToken.png}
-									\caption{Honey token s detekčnou logikou}
-									\label{senderCodeToken}
-					\end{center}
-\end{figure}
 
-
-
-\subsection{Injekcia iframe elementu s konkrétnym obsahom} \label{injectionOfIframeElement}
+\subsection{Injekcia iframe elementu s konkrétnym obsahom}
 
 Potrebný dynamický obsah možno v rámci statického obsahu honey tokenu vložiť ako vnorený dokument pomocou iframe elementu. V konkrétnom dokumente konkrétnej webovej lokality môžeme nahradiť nejaký existujúci alebo vložiť nový. Pri nahradzovaní existujúceho by sme mali nahradiť aj celú poskytovanú biznis logiku. V niektorých prípadoch pre tieto účely možno použiť proxi server. Druhou možnosťou je propojiť iframe element, ktorý sa nemusí ani zobraziť. V tomto prípade vzrastá potencionálna hrozba detegovateľnosti honeypotu. Poskytnutie reálneho obsahu tak môže byť spoľahlivejšie a zaručí to aj zabránenie blokovaniu požiadaviek na server. Aj v tomto prípade uvádzame postup tvorby takéhoto honey tokenu s dôrazom na náhodné určenie jednotlivých parametrov:
 
@@ -295,7 +283,7 @@ Postup tvorby honey tokenu pomocou iframe elementu sme zobrazili na obrázku \re
 
 
 
-\section{Automatizované generovanie honey tokenov} \label{automaticGeneratingOfHoneyTokens}
+\section{Automatizované generovanie honey tokenov}
 
 Po návrhu kustomizovateľného honey tokenu bolo potrebné realizovať aj ich masové generovanie zosúladené so zvolenou stratégiou. Vhodné je zabezpečiť aj rozšíriteľnosť pre aplikovanie ľubovoľnej stratégie. Ich tvorbu sme preto rozdelili na niekoľko častí. V prvej fáze sa podľa špecifických kritérií vytvorí JSON konfiguračný súbor s parametrami určujúcimi základné komponenty a ich orientáciu. Túto fázu je možné aj automatizovať. Pri automatickom vytvorení príslušného súboru, ktorému môže predchádzať získanie odkazov na podstránky konkrétnej webovej lokality, je následne potrebná manuálna revízia a úprava výsledných hodnôt konfigurácie. Druhou fázou je samotné vytvorenie konkrétnych inštancií honey tokenov a serverov podľa vytvorenej konfigurácie. Následne je vhodné manuálne upraviť výsledné časti, tak aby pôsobili čo najdôveryhodnejšie. Jednotlivé kroky ktoré je vhodné aplikovať pri automatizovanom generovaní honey tokenov sú vymenované a popísané na obrázku \ref{massHoneyTokenProduction}.
 
@@ -340,12 +328,11 @@ V rámci testovania automatickej tvorby honey tokenov sme napísali krátke konf
 
 
 
-\section{Evaluácia tvorby a kustomizácie honey tokenov} \label{evaluationOfHoneyTokenCustomizations}
+\subsection{Evaluácia tvorby a kustomizácie honey tokenov}
 
-Funkčnosť a schopnosť utajiť konkrétny obsah pred útočníkom v rámci navrhnutého postupu zo subsekcie \ref{detectionScriptInsertion} sme sa rozhodli aj overiť automatizáciou tvorby spomenutého honey tokenu a otestovať rôzne podoby manipulácie s ním. Automatizované riešenie tvorby honey tokenov vyžaduje špecifikovanie príslušných parametrov vrátane skriptu umiestneného v samotnom honey tokene a kódu časti ovládača umiestneného na serveri. Honey token by mal byť schopný odoslať utajenú správu na server a vyžiadať si potrebný obsah. To by malo byť zabezpečené jednoduchým dopytom. Dôležité je sa zamerať na ukrytie tejto funkcionality aplikovaním vhodných metód popisovaných v predchádzajúcich častiach. V rámci automatizácie toto maskovanie realizujeme až pri samotnom vytváraní honey tokenu, a preto nie je v samotnom pripravenom kóde (\ref{maskingClientCode}) prítomné. Zároveň takéto spracovanie umožňuje použiť akýkoľvek skript.
-
-
-\begin{lstlisting}[float=t,language=JavaScript,numbers=left,caption={Detekčný skript - klientská časť.},label=maskingClientCode]
+Funkčnosť a schopnosť utajiť konkrétny obsah pred útočníkom v rámci navrhnutého postupu zo subsekcie \ref{detectionScriptInsertion} sme sa rozhodli aj overiť automatizáciou tvorby spomenutého honey tokenu a otestovať rôzne podoby manipulácie s ním. Automatizované riešenie tvorby honey tokenov vyžaduje špecifikovanie príslušných parametrov vrátane skriptu umiestneného v samotnom honey tokene a kódu časti ovládača umiestneného na serveri. Honey token by mal byť schopný odoslať utajenú správu na server a vyžiadať si potrebný obsah. To by malo byť zabezpečené jednoduchým dopytom. Dôležité je sa zamerať na ukrytie tejto funkcionality aplikovaním vhodných metód popisovaných v predchádzajúcich častiach. V rámci automatizácie toto maskovanie realizujeme až pri samotnom vytváraní honey tokenu. Ukážka kódu 
+ 
+\begin{lstlisting}[language=JavaScript]
 function AddZero(num) {
     return (num >= 0 && num < 10) ? "0" + num : num + "";
 }
@@ -363,11 +350,7 @@ fetch("http://localhost:5001/input", {
 aa();
 \end{lstlisting}
 
-
-Funkcionlita na serveri by mala byť schopná príslušnú správu odmaskovať a zalogovať. Zdrojový kód implementovaného riešenia pre NodeJS vykonávajúci tieto úlohy je uvedený vo výpise kódu \ref{maskingServerCode}. Využívame tu knižnicu python-shell pre vykonanie pythonovského skriptu. Po získaní odpovede z post dopytu na príslušnom url prenášanej v rámci objektu req je potrebné dekódovať jej obsah z base64 kódovania, ktoré bolo nevyhnutné aplikovať kvôli rozdeleniu príslušného kódu do skriptu. Pokiaľ by sa nevykonalo nemusel by byť príslušný skript v rámci honey tokenu platný kvôli zamiešaniu znakov hlavne z HTML formátu a problémom z quotovaním. V rámci objektu options sa nastavia parametre pre vykonanie skriptu ako sú napríklad jeho argumenty. Následne sa vytvorí objekt PythonShell obsahujúci názov príslušného skriptu spolu s v minulom kroku predpripravenou konfiguráciou. Pomocou volania funkcie send pošleme skriptu zamaskované dáta zo vstupu. Rovnako je potrebné registrovať poslucháča na eventy s názvom 'message' umožňujúce logovať akýkoľvek výstup zo skriptu. Týmto výstupom v našom prípade bude odmaskovaná správa. Takýmto spôsobom možno spracovať aj dáta s väčšou veľkosťou. Ukončenie prácu so skriptom zrealizujem pomocou funkcie end. V rámci nej môžeme zalogovať prípadné vzniknuté chyby spojené s vykonaním skriptu.
-
-
-\begin{lstlisting}[float=t,language=JavaScript,numbers=left,caption={Logovanie obsahu - serverovská časť},label=maskingServerCode]
+\begin{python}
 const PythonShell = require('python-shell').PythonShell;
 router.post('/replaceMe', function(req, res){
    	var concealedData = req.body.element;
@@ -393,10 +376,31 @@ router.post('/replaceMe', function(req, res){
 	});
 	
 });
-\end{lstlisting}
+\end{python}
 
+\begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
+					\begin{center}
+									\includegraphics[width=\linewidth]{fig/senderCodeToken.png}
+									\caption{Honey token s detekčnou logikou}
+									\label{senderCodeToken}
+					\end{center}
+\end{figure}
 
-Po vygenerovaní celého riešenia ručiaceho za vykonateľnosť predchádzajúcich nevyhnutných kódov sme funkčnosť funkcionality aj otestovali. Nainštalovali sme vhodné balíčky pre NodeJs server a Python s knižnicou brotli~\footnote{\url{https://pypi.org/project/Brotli/}}. Následne sme spustili vytvorený NodeJS server. Honey token sme staticky skontrolovali prečítaním jeho obsahu. Asociované súbory boli minifikované a skript v nich zneprehľadnený. Správa informujúca o podozrivej aktivite bola príslušne zamaskovaná. Na záver sme spustili program BurpSuite~\footnote{\url{https://portswigger.net/burp}} a otvorili v ňom honey token. V rámci rôznych dopytov sme odchytili aj dopyt s obsahom tejto správy. Obrázok \ref{burpSuiteCapturing} zobrazuje túto zachytenú správu zobrazenú programom BurpSuite. V tejto implementácii sme správu vhodne zamaskovali, preto útočník mal znemožnené vidieť jej obsah. Stále môže túto správu zahodiť a zabrániť tak jej odoslaniu. Povolenie odoslania tejto správy by preto malo byť podmienené výmenou za fiktívny obsah z konkrétnej domény. 
+\begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
+					\begin{center}
+									\includegraphics[width=\linewidth]{fig/maskingClientCode.png}
+									\caption{Detekčný skript - klientská časť}
+									\label{maskingClientCode}
+					\end{center}
+\end{figure}
+
+\begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
+					\begin{center}
+									\includegraphics[width=\linewidth]{fig/maskingServerCode.png}
+									\caption{Logovanie obsahu - serverovská časť}
+									\label{maskingServerCode}
+					\end{center}
+\end{figure}
 
 \begin{figure}[!t]  %vycentrovany obrazok grafu, vsadeny do odstavca
 					\begin{center}
@@ -407,11 +411,8 @@ Po vygenerovaní celého riešenia ručiaceho za vykonateľnosť predchádzajúc
 \end{figure}
 
 
-Zdrojový kód opisovaného riešenia je uložený v rámci github repozitára~\footnote{\url{https://github.com/jperdek/tokenCreator}} a rovnako aj k dispozícii pre ďalšie vylepšenia.
 
-
-
-\section{Zhrnutie a budúca práca} \label{conclusions}
+\section{Zhrnutie a budúca práca}
 
 Kustomizácia je pri honeypotoch veľmi dôležitá hlavne kvôli zmenšeniu miery ich detegovateľnosti. Zautomatizovanie procesu ich tvorby spolu so zavedením náhodného výberu spomedzi možných vlastností pomáha urýchliť ich vývoj a znížiť aj úsilie potrebné pre spomenutú kustomizáciu. Navrhli a vytvorili sme preto program umožňujúci nielen vytvoriť a do istej miery aj prispôsobiť konkrétne honey tokeny, ale uplatniť celý proces v rámci konkrétnej stratégie lákania útočníka. Rozmiestnenie ako aj nasadenie týchto honey tokenov realizujeme niekoľkými spôsobmi. Pri niektorých sa predpokladá vytvorenie veľkého množstva podobných inštancií, pri inej len nízky počet tých výrazných. Okrem samotných webových dokumentov sa vygeneruje jeden alebo viac serverov a služby zabezpečujúce logovanie správ z honey tokenov. Riešenie sme obohatili o techniky ukrytia obsahu, logovania správ a stiahnutia predlôh tokenov z konkrétnej webovej lokality pre ich ďalšiu kustomizáciu. Implementácia bola realizovaná podľa požiadaviek zabezpečujúcich detegovanie aktivity záujmu útočníka o konkrétne informácie špecifického webového dokumentu v prípade ich sprístupnenia respektíve odtajnenia.
 
