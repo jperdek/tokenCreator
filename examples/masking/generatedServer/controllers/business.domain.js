@@ -17,7 +17,7 @@ router.post('/newone', function(req, res){
 	let options = {
  		mode: 'text',
   		pythonOptions: ['-u'], // get print results in real-time
-  		args: ['-unconcealing', '-key', 'b85b;def;b85b;def;def;b85a;br;b64;br;url;b32;gzip;b85b;br;b32;b64;b85a;b16;gzip;br']
+  		args: ['-unconcealing', '-key', 'b85a;gzip;url;b32;b64;b16;url;b32;b85a;b32;url;b64;gzip;b85a;b85a;b85b;b32;def;b64;gzip']
 	};
 	var pythonShell = new PythonShell('content_concealing_script.py', options);
 	pythonShell.send(concealedData);

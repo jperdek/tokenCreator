@@ -8,7 +8,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
 app.use('/', archon_ultra);
 app.use(express.static(__dirname + '/public/'));
 var humans = require('./controllers/game.humans');
