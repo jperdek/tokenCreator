@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.12.9)  7 MAY 2022 18:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.12.9)  9 MAY 2022 00:18
 entering extended mode
 **./lowInteractionHoneypotCustomization.tex
 (lowInteractionHoneypotCustomization.tex
@@ -312,6 +312,14 @@ Package babel Info: Making ' an active character on input line 129.
 \cs@wordlen=\count287
 Package babel Info: Making - an active character on input line 294.
 ))
+(C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 11
+2.
+
+(C:\Program Files\MiKTeX\tex/latex/psnfss\t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+))
 (C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
@@ -324,20 +332,20 @@ LaTeX Warning: Label `contentConcealing' multiply defined.
 )
 \openout1 = `lowInteractionHoneypotCustomization.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
 
 -- Lines per column: 50 (exact).
 
@@ -396,300 +404,168 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 504.
 )
 \c@lstlisting=\count295
-
-Underfull \hbox (badness 1831) in paragraph at lines 84--85
-\OT1/ptm/m/n/11 za-ober[]ame v sek-cii VI[]. Sek-cia VII[] pri-bli[]zuje po-
- []
-
-[1{C:/Users/perde/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
+ [1{C:/Users/perde/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
-\OT1/ptm/m/it/11 (De-cep-tion ser-vice)\OT1/ptm/m/n/11 , emul[]acia cel[]eho op
-era[]cn[]eho
- []
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 98.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 98.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
-\OT1/ptm/m/n/11 syst[]emu \OT1/ptm/m/it/11 (OS emu-la-tion)\OT1/ptm/m/n/11 , em
-ul[]acia zra-ni-tel[]nosti
- []
-
-
-Underfull \hbox (badness 1442) in paragraph at lines 91--92
-\OT1/ptm/m/it/11 re-dir-rec-tion) \OT1/ptm/m/n/11 a di-git[]alna n[]avnada \OT1
-/ptm/m/it/11 (di-gi-tal bait) \OT1/ptm/m/n/11 [7].
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
-\OT1/ptm/m/n/11 Ty-pick[]ym re-pre-zen-tan-tom pre tech-niku di-git[]alnej
- []
-
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 93.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 93.
 
 (C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 93.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 98.
 
 
 (C:\Users\perde\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 93--93
-[][][]$\OT1/ptm/m/n/9 https : / / www . smokescreen . io / practical -[] honeyp
-ots -[] a -[] list -[] of -[] open -[]
- []
-
-
-Underfull \hbox (badness 5189) in paragraph at lines 105--106
-[]\OT1/ptm/m/n/11 N[]zko in-te-rakt[]vne ho-ne-y-poty pre de-tek-ciu ne-
+Underfull \hbox (badness 10000) in paragraph at lines 98--98
+[][][]$\T1/ptm/m/n/9 https : / / www . smokescreen . io / practical -[] honeypo
+ts -[] a -[] list -[] of -[] open -[]
  []
 
 [2]
-Underfull \hbox (badness 1642) in paragraph at lines 113--114
-\OT1/ptm/m/n/11 m[]a po-tom po-dobu zis-te-nia o iden-ti-fi-ko-va-nom
+Underfull \hbox (badness 2012) in paragraph at lines 135--136
+[]\T1/ptm/m/n/11 Manipulovanie so ²truk-tú-rou we-bo-vého do-ku-
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 14
+8.
+(C:\Program Files\MiKTeX\tex/latex/psnfss\t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+) [3] [4]
+Underfull \hbox (badness 6348) in paragraph at lines 193--194
+\T1/ptm/m/n/11 fun-kci-ona-lity umoº-¬u-jú-cej vy-tvo-ri´ z textu hash
  []
 
 
-Underfull \hbox (badness 2846) in paragraph at lines 113--114
-\OT1/ptm/m/n/11 z[]aujme o tieto s[]ubory. De-tek-cia vyu[]z[]vaj[]uca
+Underfull \hbox (badness 1540) in paragraph at lines 193--194
+\T1/ptm/m/n/11 via-ce-rých me-tód ani moºné. Rov-nako pre-ty-po-va-nie
  []
 
 
-Underfull \hbox (badness 2961) in paragraph at lines 117--118
-\OT1/ptm/m/n/11 spr[]ava od-chy-ten[]a, a jej odo-sla-nie na ser-ver
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+\T1/ptm/m/n/11 spô-so-bo-valo chyby pri in-teg-rá-cii spo-me-nu-tých
  []
 
 
-Underfull \hbox (badness 1590) in paragraph at lines 128--129
-[]\OT1/ptm/m/n/11 Vytvorenie k[]opie konkr[]etnej we-bo-vej lo-ka-lity,
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+\T1/ptm/m/n/11 url-lib.parse.quote_from_bytes(compressed_bytes)
  []
 
 
-Underfull \hbox (badness 2012) in paragraph at lines 130--131
-[]\OT1/ptm/m/n/11 Manipulovanie so []strukt[]urou we-bov[]eho do-ku-
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+\T1/ptm/m/n/11 a me-tóda pre spätný pre-vod má po-dobu
  []
 
 
-Underfull \hbox (badness 4647) in paragraph at lines 141--142
-[]\OT1/ptm/m/n/11 Pr[]klad pou[]zitia n[]astroja HTT-rack pre z[]skanie
- []
-
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-43.
-(C:\Program Files\MiKTeX\tex/latex/psnfss\ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [3]
-Underfull \hbox (badness 2689) in paragraph at lines 150--151
-[]\OT1/ptm/m/n/11 Do rie[]senia sme pri-dali nie-kol[]ko n[]astrojov pre
- []
-
-[4]
-Underfull \hbox (badness 4492) in paragraph at lines 173--174
-[]\OT1/ptm/m/n/11 Pr[]padn[]e pri-da-nie re-dun-dantn[]eho k[]odu alebo
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+\T1/ptm/m/n/11 url-lib.parse.unquote_to_bytes(encoded_text)).
  []
 
 
-Underfull \hbox (badness 2547) in paragraph at lines 175--176
-[]\OT1/ptm/m/n/11 Rovnako pre ka[]zd[]y ge-ne-ro-van[]y ho-ney to-ken
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+\T1/ptm/m/n/11 Ako ¤al-²ie me-tódy pre mas-ko-va-nie textu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--176
-\OT1/ptm/m/n/11 pre-behne mi-ni-fik[]acia spolu s pr[]padn[]ym
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+\T1/ptm/m/n/11 sme po-u-ºili fun-kci-ona-litu pre qu-oto-va-nie url
  []
 
 
-Underfull \hbox (badness 7379) in paragraph at lines 188--189
-\OT1/ptm/m/n/11 fun-kci-ona-lity umo[]z[]nuj[]ucej vy-tvo-rit[] z textu hash
- []
-
-
-Underfull \hbox (badness 1540) in paragraph at lines 188--189
-\OT1/ptm/m/n/11 via-cer[]ych met[]od ani mo[]zn[]e. Rov-nako pre-ty-po-va-nie
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
-\OT1/ptm/m/n/11 sp[]osobovalo chyby pri in-tegr[]acii spo-me-nut[]ych
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
-\OT1/ptm/m/n/11 url-lib.parse.quote[]from[]bytes(compressed[]bytes)
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
-\OT1/ptm/m/n/11 a met[]oda pre sp[]atn[]y pre-vod m[]a po-dobu
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
-\OT1/ptm/m/n/11 url-lib.parse.unquote[]to[]bytes(encoded[]text)).
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
-\OT1/ptm/m/n/11 Ako d[]al[]sie met[]ody pre mas-ko-va-nie textu
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
-\OT1/ptm/m/n/11 sme pou[]zili fun-kci-ona-litu pre qu-oto-va-nie url
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
-\OT1/ptm/m/n/11 (url-lib.parse.quote[]plus(pure[]text)) a jeho sp[]atn[]y
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+\T1/ptm/m/n/11 (url-lib.parse.quote_plus(pure_text)) a jeho spätný
  []
 
 [5]
 <fig/masking.png, id=22, 1099.10625pt x 534.19576pt>
 File: fig/masking.png Graphic file (type png)
 <use fig/masking.png>
-Package pdftex.def Info: fig/masking.png  used on input line 197.
+Package pdftex.def Info: fig/masking.png  used on input line 202.
 (pdftex.def)             Requested size: 252.0pt x 122.47932pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
-[]\OT1/ptm/m/n/11 V praxi ok-rem []standardnej mi-ni-fik[]acie k[]odu
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
-\OT1/ptm/m/n/11 zah[]r[]naj[]ucej n[]ahradu pre-menn[]ych a od-str[]anenie
- []
-
-
-Underfull \hbox (badness 1478) in paragraph at lines 207--208
-\OT1/ptm/m/n/11 pr[]azdneho miesta m[]o[]ze byt[] u[]zito[]cn[]e aj roz-de-le-n
-ie
- []
-
 <fig/codeScattering.png, id=23, 784.73175pt x 369.7815pt>
 File: fig/codeScattering.png Graphic file (type png)
 <use fig/codeScattering.png>
-Package pdftex.def Info: fig/codeScattering.png  used on input line 223.
+Package pdftex.def Info: fig/codeScattering.png  used on input line 228.
 (pdftex.def)             Requested size: 252.0pt x 118.74438pt.
-[6 <./fig/masking.png> <./fig/codeScattering.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
-[]\OT1/ptm/m/n/11 Vlo[]zenie met[]od pre od-mas-ko-va-nie alebo
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
-\OT1/ptm/m/n/11 de[]sifrovanie konkr[]etneho ob-sahu s k[]odom
- []
-
-
-Underfull \hbox (badness 1931) in paragraph at lines 252--253
-\OT1/ptm/m/n/11 met[]ody, ale nie sa-motn[]ych spr[]av s d[]orazom
- []
-
+ [6 <./fig/masking.png> <./fig/codeScattering.png>]
 <fig/senderCodeToken.png, id=27, 885.3075pt x 650.43pt>
 File: fig/senderCodeToken.png Graphic file (type png)
 <use fig/senderCodeToken.png>
-Package pdftex.def Info: fig/senderCodeToken.png  used on input line 266.
+Package pdftex.def Info: fig/senderCodeToken.png  used on input line 271.
 (pdftex.def)             Requested size: 252.0pt x 185.13628pt.
-[7 <./fig/senderCodeToken.png>]
+ [7 <./fig/senderCodeToken.png>]
 <fig/iframeToken.png, id=32, 863.6265pt x 650.43pt>
 File: fig/iframeToken.png Graphic file (type png)
 <use fig/iframeToken.png>
-Package pdftex.def Info: fig/iframeToken.png  used on input line 297.
+Package pdftex.def Info: fig/iframeToken.png  used on input line 302.
 (pdftex.def)             Requested size: 252.0pt x 189.79099pt.
-
-Underfull \hbox (badness 2818) in paragraph at lines 307--308
-\OT1/ptm/m/n/11 z[]akladn[]e kom-po-nenty a ich orient[]aciu. T[]uto f[]azu
- []
-
 <fig/massTokenGeneration.png, id=33, 999.13275pt x 634.16925pt>
 File: fig/massTokenGeneration.png Graphic file (type png)
 <use fig/massTokenGeneration.png>
-Package pdftex.def Info: fig/massTokenGeneration.png  used on input line 311.
+Package pdftex.def Info: fig/massTokenGeneration.png  used on input line 316.
 (pdftex.def)             Requested size: 252.0pt x 159.94502pt.
-[8 <./fig/iframeToken.png> <./fig/massTokenGeneration.png>]
+ [8 <./fig/iframeToken.png> <./fig/massTokenGeneration.png>]
 <fig/configurationFile.png, id=37, 444.4605pt x 264.38776pt>
 File: fig/configurationFile.png Graphic file (type png)
 <use fig/configurationFile.png>
-Package pdftex.def Info: fig/configurationFile.png  used on input line 322.
+Package pdftex.def Info: fig/configurationFile.png  used on input line 327.
 (pdftex.def)             Requested size: 252.0pt x 149.9038pt.
 
-Underfull \hbox (badness 2376) in paragraph at lines 334--335
-\OT1/ptm/m/n/11 strat[]egie. Ge-ner[]ator tak vy-tvo-ril 3 to-keny, pri[]com
+Underfull \hbox (badness 2376) in paragraph at lines 339--340
+\T1/ptm/m/n/11 stra-té-gie. Ge-ne-rá-tor tak vy-tvo-ril 3 to-keny, pri-£om
  []
 
 
-Underfull \hbox (badness 4608) in paragraph at lines 334--335
-\OT1/ptm/m/n/11 Po-stup je op[]san[]y v predch[]adzaj[]ucich ka-pi-tol[]ach.
+Underfull \hbox (badness 4608) in paragraph at lines 339--340
+\T1/ptm/m/n/11 Po-stup je opí-saný v pred-chá-dza-jú-cich ka-pi-to-lách.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 334--335
-\OT1/ptm/m/n/11 to-ke-nov. Vy-tvo-ren[]emu ser-veru sme doin[]stalovali
+Underfull \hbox (badness 10000) in paragraph at lines 339--340
+\T1/ptm/m/n/11 to-ke-nov. Vy-tvo-re-nému ser-veru sme do-in-²ta-lo-vali
  []
 
 
-Underfull \hbox (badness 2556) in paragraph at lines 334--335
-\OT1/ptm/m/n/11 jed-not-live ho-ney to-keny v pre-hliada[]ci. V kon-zole
+Underfull \hbox (badness 2556) in paragraph at lines 339--340
+\T1/ptm/m/n/11 jed-not-live ho-ney to-keny v pre-hlia-da£i. V kon-zole
  []
 
 
-Overfull \hbox (5.5081pt too wide) in paragraph at lines 334--335
-\OT1/ptm/m/n/11 ney[]token[]generator/honey[]token[]strategies[]generate.py. 
+Overfull \hbox (5.5081pt too wide) in paragraph at lines 339--340
+\T1/ptm/m/n/11 ney_token_generator/honey_token_strategies_generate.py. 
  []
 
 [9 <./fig/configurationFile.png>]
-Underfull \hbox (badness 1742) in paragraph at lines 374--375
-\OT1/ptm/m/n/11 kni[]znicu python-shell pre vy-ko-na-nie pyt-ho-novsk[]eho
- []
-
-
 Underfull \vbox (badness 1496) has occurred while \output is active []
 
  [10]
 <fig/burpSuite.png, id=45, 560.0925pt x 339.06676pt>
 File: fig/burpSuite.png Graphic file (type png)
 <use fig/burpSuite.png>
-Package pdftex.def Info: fig/burpSuite.png  used on input line 409.
+Package pdftex.def Info: fig/burpSuite.png  used on input line 414.
 (pdftex.def)             Requested size: 252.0pt x 152.55792pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--416
-\OT1/ptm/m/n/11 ho-ney[]token[]generator/honey[]token[]constructor.py
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
+\T1/ptm/m/n/11 ho-ney_token_generator/honey_token_constructor.py
  []
 
 
-Underfull \hbox (badness 4144) in paragraph at lines 415--416
-\OT1/ptm/m/n/11 a uskuto[]cnen[]m po-pi-so-van[]ych kro-kov. Po za-pnut[]
+Underfull \hbox (badness 4144) in paragraph at lines 420--421
+\T1/ptm/m/n/11 a usku-to£-ne-ním po-pi-so-va-ných kro-kov. Po za-pnutí
  []
 
 
-Underfull \hbox (badness 2608) in paragraph at lines 415--416
-\OT1/ptm/m/n/11 ser-veru a znovu vy-ge-ne-ro-van[] to-kenu je po-trebn[]e
+Underfull \hbox (badness 2608) in paragraph at lines 420--421
+\T1/ptm/m/n/11 ser-veru a znovu vy-ge-ne-ro-vaní to-kenu je po-trebné
  []
 
 
-Underfull \hbox (badness 2418) in paragraph at lines 421--422
-[]\OT1/ptm/m/n/11 Kustomiz[]acia je pri ho-ne-y-po-toch vel[]mi d[]ole[]zit[]a
- []
-
-
-Underfull \hbox (badness 1400) in paragraph at lines 425--426
-\OT1/ptm/m/n/11 z[]aujmu o konkr[]etne we-bov[]e do-ku-menty pre ur[]cit[]u
- []
-
-
-Underfull \hbox (badness 3271) in paragraph at lines 425--426
-\OT1/ptm/m/n/11 dom[]eny. Cel[]y pro-ces aj v z[]avislosti od dom[]eny
- []
-
-
-Underfull \hbox (badness 1622) in paragraph at lines 425--426
-\OT1/ptm/m/n/11 vy[]zaduje pre []co najvy[]s[]sie zv[]y[]senie d[]overyhodnosti
-
+Underfull \hbox (badness 1975) in paragraph at lines 426--427
+[]\T1/ptm/m/n/11 Kustomizácia je pri ho-ne-y-po-toch ve©mi dô-le-ºitá
  []
 
 [11 <./fig/burpSuite.png>] (lowInteractionHoneypotCustomization.bbl)
@@ -710,12 +586,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7365 strings out of 479334
- 107093 string characters out of 2857084
- 690394 words of memory out of 3000000
- 24681 multiletter control sequences out of 15000+200000
- 445227 words of font info for 111 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
+ 7620 strings out of 479334
+ 109262 string characters out of 2857084
+ 685565 words of memory out of 3000000
+ 24923 multiletter control sequences out of 15000+200000
+ 510584 words of font info for 147 fonts, out of 3000000 for 9000
+ 1144 hyphenation exceptions out of 8191
  72i,8n,78p,2219b,1249s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/perde/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:
 /Users/perde/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><
@@ -725,7 +601,7 @@ C:/Users/perde/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb
 b><C:/Users/perde/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pf
 b><C:/Users/perde/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.p
 fb>
-Output written on lowInteractionHoneypotCustomization.pdf (12 pages, 859440 byt
+Output written on lowInteractionHoneypotCustomization.pdf (12 pages, 838682 byt
 es).
 PDF statistics:
  73 PDF objects out of 1000 (max. 8388607)
